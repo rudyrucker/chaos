@@ -33,4 +33,4 @@ Barnsley_Fractals is the "Chaos Game" module that shows fractals in the style in
 
 Cellular_Automata is for the "Toy Universe" module which shows cellular automata.
 
-The code is written to work with a DOS GUI called Metashel, which was an early 1980s TSR or "terminate and stay resident" program by MetaGraphics Software Corporation, then in Scotts Valley, CA. Thus metashel.exe is run in DOS before before the chaos program code. A copy of metashel.exe is distributed with the Chaos 1998 release download.
+The code is written to work with a DOS GUI called Metashel, which was an early 1980s TSR or "terminate and stay resident" program by MetaGraphics Software Corporation, then in Scotts Valley, CA. Thus metashel.exe is run in DOS before before the chaos program code. A copy of metashel.exe is distributed with the Chaos release download.
