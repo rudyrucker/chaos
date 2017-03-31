@@ -1,0 +1,13 @@
+Building ATTR:
+
+Make sure the \tc\bin is on your path to build!
+
+The following tools were used:
+
+Turbo C++ (TC++) version 1.00
+TASM version 2.0
+TLINK version 3.0
+Tmake  v3.0
+lharc version 1.13c
+
+

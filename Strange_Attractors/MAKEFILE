@@ -1,0 +1,280 @@
+# Makefile for the ATTRACT portion of CHAOS. The entire build should be
+# done in a single directory. This makefile is designed to work with
+# Turbo MAKE.
+
+VERSION=0
+SUBVERSION=998
+MODULE=atr
+
+MODEL=l
+CC=tcc
+#CFLAGS=-v -g1 -m$(MODEL) -DVERSION=$(VERSION).$(SUBVERSION) \
+# -w -DPROGRAM_NAME="Strange_Attractors" -DNDEBUG -Z -DINCLUDE_FILE="attract.h" -G -O
+CFLAGS=-v -g1 -m$(MODEL) -DVERSION=$(VERSION).$(SUBVERSION) -DRELEASE \
+ -w -DPROGRAM_NAME="Strange_Attractors" -DNDEBUG -Z -DINCLUDE_FILE="attract.h" -G -O
+AS=tcc -ms -v
+LINKER=tlink /v /c /s
+LB=\tc\lib
+LIBS=$(LB)\emu.lib $(LB)\mathl.lib $(LB)\cl.lib $(LB)\overlay.lib
+MAKE_TMP= $(TMP)
+MW=\mw
+GMLIBS=$(MW)\mw_d1smc.lib
+COMPRESS=lharc u
+MAKESFX= lharc s /x
+SOURCES=\sources
+EXECUTABLES=\executables
+
+.asm.obj:
+	tasm /ml /zi $<
+
+.c.obj:
+	@type &&!
+   $(CC) $(CFLAGS) -c -Y $<
+!
+	$(CC) @&&!
+$(CFLAGS) -c -Y $<
+!
+
+.c.ovj:
+	@type &&!
+   $(CC) $(CFLAGS) -c -Yo -o$*.ovj $<
+!
+	$(CC) @&&!
+$(CFLAGS) -c -Yo -o$*.ovj $<
+!
+
+all: attractx.exe
+
+clean:
+	del *.o?j
+	del *.map
+
+
+ATTRSRCS=\
+        main.c \
+        attraca9.asm \
+        attr_2.c \
+        menus.c \
+        jhelp.c \
+        jpushpop.c \
+        files.c \
+        jgif.c \
+	comprs.c \
+        jgraph.c \
+	jgetstri.c
+
+ATTRSRCS2=\
+        types.c \
+        tweaks.c \
+        options.c \
+        newsel.c \
+	rowblast.asm \
+        logtweak.c \
+        lortweak.c \
+        hentweak.c \
+	yortweak.c
+
+ATTRSRCS3=\
+        diskerr.c \
+        palette.c \
+        decoder.c \
+        slider.c \
+        blast.asm \
+        over.c \
+        henon.c \
+        logistic.c \
+        lorenz.c \
+	stamp.c
+
+ATTRSRCS4=\
+	zoombox.c \
+	allocate.c \
+        utils.c \
+        button.c \
+        keyboard.c \
+        logtweak.c \
+	infobox.c \
+	yorke.c
+
+ATTRINCS1=\
+        gif.h \
+        grconst.h \
+        grextrn.h \
+        grfonts.h \
+        grports.h \
+        metcompl.h \
+        scodes.h \
+
+ATTRINCS2=\
+        buttons.h \
+        attrdefs.h \
+        attrvars.h \
+	attrexts.h \
+	attract.h
+
+ATTRHLPS1=\
+        attrmain.hlp \
+        attytwk.hlp \
+        attltwk.hlp \
+        atthtwk.hlp \
+	attlgtwk.hlp
+
+ATTRHLPS2=\
+        attype.hlp \
+        attview.hlp \
+        attfiles.hlp \
+        attpal.hlp \
+        select.hlp \
+        zoomasp.hlp \
+	zoomvar.hlp
+
+
+ATTROBJS=main.obj \
+        attraca9.obj \
+        attr_2.obj \
+        menus.obj \
+        jhelp.obj \
+        jpushpop.obj \
+        files.obj \
+        types.obj \
+        tweaks.obj \
+        options.obj \
+	allocate.obj \
+        slider.obj \
+        newsel.obj \
+        jgetstri.obj \
+        decoder.obj \
+        comprs.obj \
+        jgif.obj \
+        rowblast.obj \
+        diskerr.obj \
+        palette.obj \
+        blast.obj \
+        stamp.obj \
+	zoombox.obj \
+        utils.obj \
+        button.obj \
+        keyboard.obj \
+        logtweak.obj \
+        lortweak.obj \
+        hentweak.obj \
+        yortweak.obj \
+        jgraph.obj \
+	infobox.obj
+
+C_UNDER=main.obj \
+        attraca9.obj \
+        attr_2.obj \
+        menus.obj \
+        jpushpop.obj \
+        allocate.obj \
+        rowblast.obj \
+        blast.obj \
+        diskerr.obj \
+        stamp.obj \
+        button.obj \
+        utils.obj \
+        keyboard.obj \
+	jgraph.obj
+
+C_OVER=\
+        jhelp.ovj \
+        files.ovj \
+        types.ovj \
+        tweaks.ovj \
+        options.ovj \
+        slider.ovj \
+        newsel.ovj \
+        jgetstri.ovj \
+        decoder.ovj \
+        comprs.ovj \
+        jgif.ovj \
+        palette.ovj \
+	zoombox.ovj \
+        logtweak.ovj \
+        lortweak.ovj \
+        hentweak.ovj \
+        yortweak.ovj \
+	infobox.ovj \
+        over.ovj \
+        lorenz.ovj \
+        logistic.ovj \
+        yorke.ovj \
+	henon.ovj
+
+
+
+ATTROTHERS=system72.fnt system16.fnt attract.pal !
+
+attractx.exe: $(C_UNDER) $(C_OVER)
+	@type > linkdink &&!
+$(LB)\c0$(MODEL) $(C_UNDER) /o $(C_OVER)
+attractx
+attractx
+$(LIBS) $(GMLIBS)
+!
+	@type linkdink
+	$(LINKER) @linkdink
+	@del linkdink
+
+#	$(LINKER) @&&!
+#$(LB)\c0$(MODEL) $(C_UNDER) /o $(C_OVER)
+#attractx
+#attractx
+#$(LIBS) $(GMLIBS)
+#!
+
+extract.q:
+	type > extract.q &&!
+Ready to extract?
+!
+
+EXEC=atrx$(VERSION)$(SUBVERSION)
+SRC=atrs$(VERSION)$(SUBVERSION)
+
+beta: attractx.exe extract.q
+	-tdstrip attractx.exe
+	-del attrx$(VERSION)$(SUBVERSION).exe
+	copy readattr.now+extract.q !
+	$(COMPRESS) $(EXEC) attractx.exe readattr.now
+#	$(COMPRESS) $(EXEC) $(ATTRHLPS1)
+#	$(COMPRESS) $(EXEC) $(ATTRHLPS2)
+	$(COMPRESS) $(EXEC) $(ATTROTHERS) attbugs.fix
+	$(MAKESFX)  $(EXEC).lzh
+        move $(EXECUTABLES)\atr*.exe $(EXECUTABLES)\old
+	copy $(EXEC).exe $(EXECUTABLES)
+	@echo Attract$(VERSION)$(SUBVERSION) created!
+
+
+srckit: attractx.exe extract.q
+	-del attrs$(VERSION)$(SUBVERSION).exe
+	copy build.doc+extract.q !
+	$(COMPRESS) $(SRC) $(ATTRSRCS)
+	$(COMPRESS) $(SRC) $(ATTRSRCS2)
+	$(COMPRESS) $(SRC) $(ATTRSRCS3)
+	$(COMPRESS) $(SRC) $(ATTRSRCS4)
+#	$(COMPRESS) $(SRC) $(ATTRHLPS1)
+#	$(COMPRESS) $(SRC) $(ATTRHLPS2)
+	$(COMPRESS) $(SRC) $(ATTRINCS1)
+	$(COMPRESS) $(SRC) $(ATTRINCS2)
+	$(COMPRESS) $(SRC) makefile build.doc readattr.now
+	$(COMPRESS) $(SRC) $(ATTROTHERS)
+	$(MAKESFX) $(SRC).lzh
+        move $(SOURCES)\atr*.exe $(SOURCES)\old
+	copy $(SRC).exe $(SOURCES)
+	@echo Attract source kit version $(VERSION).$(SUBVERSION) built!
+
+
+
+
+release: clean srckit beta
+	@echo Attract release version $(VERSION)$(SUBVERSION) built!
+
+lines:
+	lines @&&!
+$(ATTRSRCS)
+$(ATTRSRCS2)
+$(ATTRSRCS3)
+$(ATTRSRCS4)
+!
+
