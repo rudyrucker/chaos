@@ -10,9 +10,9 @@ You can get a little more info at about the program at the old <a href="http://w
 
 # Release 1.1
 
-The executable and parameter files. It is possible to run the Chaos program on any virutally any platgorm inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">release page</a>.
+<a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Download page</a> for the executable and parameter files. It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox.
 
-# Source Code
+# Note on the Source Code
 
 The code is DOS and assembly code.  A makefile is in each directory. The builds were compiled and assembled using Turbo C and Tasm.
 
