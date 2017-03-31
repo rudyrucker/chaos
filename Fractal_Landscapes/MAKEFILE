@@ -1,0 +1,272 @@
+VERSION=0
+SUBVERSION=995
+#CFLAGS= -ml -DVERSION=$(VERSION).$(SUBVERSION) -w
+CFLAGS=-v -ml -DVERSION=$(VERSION).$(SUBVERSION) -w -DPROGRAM_NAME="Fractal_Forgeries" \
+-DFORGE -DNDEBUG -g1 -DINCLUDE_FILE="forge.h" -DRELEASE -G -Z -O
+AS=tcc -ml -v
+GM=d:\gm
+MW=\mw
+LINKER=tlink /v /s /m /c
+LB=\tc\lib
+LIBS=fli.lib $(LB)\emu.lib $(LB)\mathl.lib $(LB)\cl.lib $(LB)\overlay.lib
+#LIBS=fli.lib $(LB)\fp87.lib $(LB)\mathl.lib $(LB)\cl.lib
+COMPRESS=lharc u
+MAKESFX = lharc s /x
+CC=tcc
+SOURCES=\sources
+EXECUTABLES=\executables
+
+GMLIBS=$(MW)\mw_d1smc.lib
+MAKE_TMP= $(TMP)
+
+.asm.obj:
+	tasm /ml /zi $<
+
+.c.obj:
+	@type &&!
+$(CC) $(CFLAGS) -c -Y $<
+!
+	$(CC) @&&!
+$(CFLAGS) -c -Y $<
+!
+
+.c.ovj:
+	@type &&!
+	$(CC) $(CFLAGS) -c -Yo -o$*.ovj $<
+!
+
+	$(CC) @&&!
+$(CFLAGS) -c -Yo -o$*.ovj $<
+!
+
+FORGEOBJS= \
+        main.obj \
+        forgea.obj \
+        graph.obj \
+        jmtnline.obj \
+        utils.obj \
+        planet.obj \
+        clouds.obj \
+        mounts.obj \
+        zaster.obj \
+        sglib.obj \
+        slider.obj \
+        pure.obj \
+        jgif.obj \
+        comprs.obj \
+        decoder.obj \
+        newsel.obj \
+        help.obj \
+        jpushpop.obj \
+        jgetstri.obj \
+        rowblast.obj \
+        render.obj \
+        dither.obj \
+        tick.obj \
+        button.obj \
+        options.obj \
+        animate.obj \
+        allocate.obj \
+        dxfout.obj \
+        files.obj \
+        synth.obj \
+        diskerr.obj \
+	infobox.obj
+
+NONOVERLAYABLE_C_STUFF=\
+        main.obj \
+        graph.obj \
+        utils.obj \
+        slider.obj \
+        jpushpop.obj \
+        button.obj \
+        allocate.obj \
+        tick.obj \
+        sglib.obj \
+        synth.obj \
+	diskerr.obj
+
+ASM_STUFF=\
+        forgea.obj \
+	rowblast.obj
+
+OVERLAYABLE_STUFF=\
+        jmtnline.ovj \
+        planet.ovj \
+        clouds.ovj \
+        mounts.ovj \
+        zaster.ovj \
+        pure.ovj \
+        jgif.ovj \
+        comprs.ovj \
+        decoder.ovj \
+        newsel.ovj \
+        help.ovj \
+        jgetstri.ovj \
+        render.ovj \
+        dither.ovj \
+        options.ovj \
+        animate.ovj \
+        dxfout.ovj \
+        files.ovj \
+	infobox.ovj
+
+
+
+
+
+FORGESRCS1 = \
+        main.c \
+        forgea.asm \
+        graph.c \
+        jmtnline.c \
+        utils.c \
+        planet.c \
+        clouds.c \
+        mounts.c \
+        zaster.c \
+	allocate.c
+
+FORGESRCS2 = \
+        sglib.c \
+        slider.c \
+        pure.c \
+        jgif.c \
+        comprs.c \
+        decoder.c \
+        newsel.c \
+        animate.c \
+        help.c \
+	jpushpop.c
+
+FORGESRCS3 = \
+        jgetstri.c \
+        rowblast.asm \
+        render.c \
+        dither.c \
+        tick.c \
+        button.c \
+	options.c
+
+FORGESRCS4= \
+        dxfout.c \
+        files.c \
+        synth.c \
+        diskerr.c \
+	infobox.c
+
+
+FORGEINCS1=\
+        aados.h \
+        aaerr.h \
+        aafli.h \
+        aaflisav.h \
+        aai86.h \
+        aascreen.h \
+        aatypes.h \
+        grconst.h \
+        grextrn.h \
+        grfonts.h \
+	grports.h
+
+FORGEINCS2=\
+        buttons.h \
+        forge.h \
+        forgvars.h \
+        forgdefs.h \
+        forgexts.h \
+        metcompl.h \
+        scodes.h \
+        zaster.h \
+        sglib.h \
+	gif.h
+
+
+FORGEHLPS1=\
+        forge.hlp \
+        forgrend.hlp \
+        forgopts.hlp \
+        forganim.hlp \
+	select.hlp
+
+FORGEHLPS2=\
+        forgfile.hlp \
+        forgcopt.hlp \
+        forgmopt.hlp \
+        forgpopt.hlp \
+	forgoopt.hlp
+
+
+FORGEOTHERS = \
+	system72.fnt system16.fnt forge480.dat forge350.dat
+
+
+all: forgex.exe
+
+
+
+
+extract.q: forgex.exe
+	type >extract.q &&!
+Forge version $(VERSION).$(SUBVERSION): Ready to extract?
+!
+
+EXEC=frgx$(VERSION)$(SUBVERSION)
+SRC=frgs$(VERSION)$(SUBVERSION)
+
+srckit: extract.q
+	-del $(SRC).exe
+	copy forgbld.doc+extract.q !
+	$(COMPRESS) $(SRC) $(FORGESRCS1)
+	$(COMPRESS) $(SRC) $(FORGESRCS2)
+	$(COMPRESS) $(SRC) $(FORGESRCS3)
+	$(COMPRESS) $(SRC) $(FORGESRCS4)
+	$(COMPRESS) $(SRC) $(FORGEINCS1)
+	$(COMPRESS) $(SRC) $(FORGEINCS2)
+#	 $(COMPRESS) $(SRC) $(FORGEHLPS1)
+#	 $(COMPRESS) $(SRC) $(FORGEHLPS2)
+	$(COMPRESS) $(SRC) $(FORGEOTHERS) makefile
+	$(COMPRESS) $(SRC) fli.lib ! readforg.now extract.q forgbld.doc
+	$(MAKESFX) $(SRC).lzh
+#        move $(SOURCES)\frgs*.exe $(SOURCES)\old
+#        copy $(SRC).exe \sources
+
+	@echo Source kit built!
+
+beta: forgex.exe extract.q
+	-tdstrip forgex.exe
+	del $(EXEC).exe
+	copy readforg.now+extract.q !
+	$(COMPRESS) $(EXEC) forgex.exe readforg.now
+#	 $(COMPRESS) $(EXEC) $(FORGEHLPS1)
+#	 $(COMPRESS) $(EXEC) $(FORGEHLPS2)
+	$(COMPRESS) $(EXEC) $(FORGEOTHERS) !
+	$(COMPRESS) $(EXEC) forgebug.fix
+	$(MAKESFX) $(EXEC).lzh
+#        move $(EXECUTABLES)\frgx*.exe $(EXECUTABLES)\old
+#        copy $(EXEC).exe \executables
+	@echo forgex created!
+
+
+
+forgex.exe: $(NONOVERLAYABLE_C_STUFF) $(ASM_STUFF) $(OVERLAYABLE_STUFF)
+	$(LINKER) @&&!
+$(LB)\c0l $(NONOVERLAYABLE_C_STUFF) $(ASM_STUFF) /o $(OVERLAYABLE_STUFF)
+forgex
+forgex
+$(GMLIBS) $(LIBS)
+!
+
+clean:
+	del *.o?j
+	del *.map
+
+release: clean beta srckit
+
+lines:
+	lines @&&!
+$(FORGESRCS1)
+$(FORGESRCS2)
+$(FORGESRCS3)
+$(FORGESRCS4)
+!
