@@ -1,0 +1,270 @@
+VERSION=0
+SUBVERSION=994
+
+CC=tcc
+CFLAGS=-v -ml -w -O -f- -DVERSION=$(VERSION).$(SUBVERSION) -DPROGRAM_NAME="Toy_Universes" \
+ -DINCLUDE_FILE="toy.h" -g1 -DNDEBUG -DRELEASE
+AS=tcc -ml -v
+GM=\gm
+MW=\mw
+LINKER=tlink /v /m /s /c
+LB=\tc\lib
+LIBS=$(LB)\emu.lib $(LB)\mathl.lib $(LB)\cl.lib $(LB)\overlay.lib
+GMLIBS=$(MW)\mw_d1smc.lib
+#GMLIBS=\mw3\mw_d1dmc.lib \mw3\met_bd1d.lib
+#.RESPONSE_LINK: tlink
+#.SUFFIXES : .exe .obj .c .asm
+MAKE_TMP= $(TMP)
+COMPRESS=lharc u
+MAKESFX = lharc s /x
+SOURCES=\sources
+EXECUTABLES=\executables
+
+.asm.obj:
+	tasm /ml /zi $<
+
+.c.obj:
+	type &&!
+$(CC) $(CFLAGS) -c -Y $<
+!
+	$(CC) @&&!
+$(CFLAGS) -c -Y $<
+!
+
+all: toyx.exe
+
+infobox.obj: makefile infobox.c
+
+
+TOYSRCS1=\
+        main.c \
+        rugraphz.asm \
+        jgraph.c \
+        jz.c \
+        button.c \
+        newsel.c \
+        jgetstri.c \
+        zoombox.c \
+        files.c \
+	allocate.c
+
+TOYSRCS2=\
+        jhelp.c \
+        jpushpop.c \
+        automata.asm \
+        jgif.c \
+        comprs.c \
+        jza.asm \
+        palette.c \
+	slider.c
+
+TOYSRCS3=\
+        newsel.c \
+        toy_2.c \
+        options.c \
+        diskerr.c \
+        rowblast.asm \
+        utils.c \
+        keyboard.c \
+        shapes.c \
+        decoder.c \
+	infobox.c
+
+TOYSRCS4=\
+        hodge.c \
+        tube.c \
+        nluky.c \
+        eat.c \
+        hires.c \
+        over.c \
+        coarse.c \
+        regular.c \
+	low.c
+
+
+
+TOYHDRS1=\
+        toy.h \
+        scodes.h \
+        buttons.h \
+        toyexts.h \
+        toyvars.h \
+	toydefs.h
+
+TOYHDRS2=\
+        grconst.h \
+        grextrn.h \
+        grfonts.h \
+        grports.h \
+        metcompl.h \
+	gif.h
+
+
+
+TOYHLPS=\
+        toy.hlp \
+        toypal.hlp \
+        toyopts.hlp \
+        select.hlp \
+        toyfile.hlp \
+        toyshape.hlp \
+	zoomfix.hlp
+
+TOYOTHERS=\
+        acad120.dat \
+        acad180.dat \
+        system16.fnt \
+        hodge.pal \
+        tube.pal \
+        eat.pal \
+	nluky.pal
+
+TOYDEVO=\
+	toybugs.fix
+
+TOYOBJS=\
+        main.obj  \
+        jgraph.obj  \
+        rugraphz.obj \
+        jz.obj \
+        button.obj \
+        jhelp.obj \
+        jpushpop.obj \
+        automata.obj \
+        jgif.obj \
+        comprs.obj \
+        jza.obj \
+        palette.obj \
+        slider.obj \
+        newsel.obj \
+        jgetstri.obj \
+        options.obj \
+        files.obj \
+        toy_2.obj \
+        diskerr.obj \
+        rowblast.obj \
+        utils.obj \
+        keyboard.obj \
+        decoder.obj \
+        shapes.obj \
+        zoombox.obj \
+        infobox.obj \
+        hodge.obj \
+        tube.obj \
+	allocate.obj
+
+C_UNDERLAY=\
+        main.obj \
+        jgraph.obj  \
+        rugraphz.obj \
+        jz.obj \
+        button.obj \
+        jpushpop.obj \
+        automata.obj \
+        jza.obj \
+        toy_2.obj \
+        diskerr.obj \
+        rowblast.obj \
+        utils.obj \
+        keyboard.obj \
+	allocate.obj
+
+C_OVERLAY=\
+        jhelp.ovj \
+        jgif.ovj \
+        comprs.ovj \
+        palette.ovj \
+        slider.ovj \
+        newsel.ovj \
+        jgetstri.ovj \
+        options.ovj \
+        files.ovj \
+        decoder.ovj \
+        shapes.ovj \
+        zoombox.ovj \
+        infobox.ovj \
+        hodge.ovj \
+        tube.ovj \
+        nluky.ovj \
+        eat.ovj \
+        hires.ovj \
+        over.ovj \
+        coarse.ovj \
+        regular.ovj \
+	low.ovj
+
+
+.c.ovj:
+	type &&!
+$(CC) $(CFLAGS) -c -Yo -o$*.ovj $<
+!
+
+	$(CC) @&&!
+$(CFLAGS) -c -Yo -o$*.ovj $<
+!
+
+
+
+toyx.exe: $(C_UNDERLAY) $(C_OVERLAY)
+	$(LINKER) @&&!
+$(LB)\c0l $(C_UNDERLAY) /o $(C_OVERLAY)
+toyx
+toyx
+$(GMLIBS) $(LIBS)
+!
+
+extract.q:
+	type > extract.q &&!
+Ready to extract?
+!
+
+EXEC=toyx$(VERSION)$(SUBVERSION)
+SRC=toys$(VERSION)$(SUBVERSION)
+
+beta: toyx.exe extract.q
+	-tdstrip toyx.exe
+	-del $(EXEC).exe
+	copy readtoy.now+extract.q !
+	$(COMPRESS) $(EXEC) toyx.exe !
+#	 $(COMPRESS) $(EXEC) $(TOYHLPS)
+	$(COMPRESS) $(EXEC) $(TOYOTHERS)
+	$(COMPRESS) $(EXEC) $(TOYDEVO)
+	$(MAKESFX) $(EXEC).lzh
+        move $(EXECUTABLES)\toy*.exe $(EXECUTABLES)\old
+	copy $(EXEC).exe $(EXECUTABLES)
+	@echo Toy$(VERSION)$(SUBVERSION) created!
+
+
+
+srckit: extract.q toyx.exe
+	copy srckit.doc+extract.q !
+	-del $(SRC).exe
+	$(COMPRESS) $(SRC) $(TOYSRCS1)
+	$(COMPRESS) $(SRC) $(TOYSRCS2)
+	$(COMPRESS) $(SRC) $(TOYSRCS3)
+	$(COMPRESS) $(SRC) $(TOYSRCS4)
+	$(COMPRESS) $(SRC) $(TOYHDRS1)
+	$(COMPRESS) $(SRC) $(TOYHDRS2)
+#	 $(COMPRESS) $(SRC) $(TOYHLPS)
+	$(COMPRESS) $(SRC) $(TOYOTHERS)
+	$(COMPRESS) $(SRC) $(TOYDEVO)
+	$(COMPRESS) $(SRC) makefile ! srckit.doc
+	$(MAKESFX) $(SRC).lzh
+        move $(SOURCES)\toy*.exe $(SOURCES)\old
+	copy $(SRC).exe $(SOURCES)
+	@echo Toy source kit version $(VERSION)$(SUBVERSION) built!
+
+
+clean:
+	del *.o?j
+	del *.map
+
+release: clean beta srckit
+
+lines:
+	lines @&&!
+$(TOYSRCS1)
+$(TOYSRCS2)
+$(TOYSRCS3)
+!
+

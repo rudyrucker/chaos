@@ -1,0 +1,120 @@
+Toy version 0.994
+File selector problem.
+
+Toy version 0.993:
+An extra line showed up on options menu; fixed.
+Funny stuff happened in coarse mode in NLUKY; fixed.
+
+Toy bug fixes version 0.992:
+32991: Fixed.
+
+Toy bug fixes version 0.991:
+TMP bug fixed.
+
+Toy bug fixes version 0.990:
+(32959 and 32967 are done)
+32968: Fixed.
+
+Toy bug fixes version 0.96:
+I'm getting ahead of the bug reports now. This one fixes the rotten
+extra lines in Toy.
+32944: Fixed.
+
+Toy bug fixes version 0.95:
+32939: Should be more robust now.
+32940: Fixed. Surprised this didn't bite us before.
+
+TOY bug fixes version 0.94 (0.93 was a memory management release,
+not a bug fix release; 0.91 was really 0.92. Confused?)
+32876: Yeah yeah yeah. Fixed.
+32877: Fixed.
+32878: Well, there's no reason to get the cursor onto the screen;
+       there's nothing you can do with it. The only bug was that the
+       zoombox wasn't restoring the cursor position. Fixed.
+32879: Part 1: Fixed! This one has been hounding me for ages. Oh boy
+               oh boy.
+       Part 2: Fixed.
+
+
+TOY bug fixes version 0.91
+31801: fixed.
+31873: Huh? Not relevant on this module. Zoom box is not resizable.
+31918: The second part of it is a file selector bug; fixed (and in all
+       modules; don't bother reporting it unless you feel compulsive,
+       it will come along with 32827 et al.) I couldn't get the first
+       part to happen. 
+32813: Fixed
+32814: Fixed. 
+32815: Fixed.
+32816: Fixed.
+32817: Fixed.
+32818: What, you don't _like_ cold booting? Fixed.
+32819: Fixed.
+32820: Huh? This seems to be the blank screen bug plus the invalid
+       directory bug. Or is this something new?
+32821: Aw, I liked the op art effect. Fixed.
+32824: Fortunatly, any changes in the file selector only need to 
+       be made once...Fixed...
+32825: Fixed.
+32827: Sorry, but it would take too much work at this point for many
+       of the modules. In this case, for example, I am copying key
+       actions exactly; I would have to rewrite the entire keyboard
+       loop to do this. 
+
+              
+         
+
+
+
+TOY bug fixes version 0.90
+
+31906: <--- DESIGNING GENERAL MEMORY CHECKER has been put off
+       till some round testing can be done.
+31907: Fixed. Limits set to 9. I really think they should be
+      15, though.
+31908: Cute, huh? Fixed.
+31909: It works _mostly_ like the zoom in other modules: it
+       zooms out when right click happens; however, it always zooms
+       out to where it zoomed in from. Fixed, otherwise.
+31910: Fixed in all rules.
+31911: Fixed. 
+31912: Fixed.
+31913: Fixed
+31914: Fixed.
+31915: Fixed.
+31916: Fixed
+31917: Fixed.
+31918: Fixed, I think?
+31919: Fixed
+
+
+TOY bug fixes as of 10-26-1990 (old numbering version 30)
+
+(Note: *** means the bug has been redesigned out of existance.)
+
+27874: ***
+27875: Fixed
+27876: Fixed
+27881: ***
+27882: Fixed -- but check docs and help file for compliance with screen
+27883: The ranges in the HELP file need to be corrected.
+27885: Palettes still urgently needed
+27888: Can't replicate in new version.
+27891: ***
+28387: Fixed (can't set to zero anymore.)
+28388: Fixed
+28389: ***
+28390: Fixed. Please check for this bug in other modules.
+28391: Fixed
+28392: Fixed
+28393: ***
+28394: Fixed.
+28395: Fixed.
+28396: ***
+28397: ***
+29398: Fixed. 
+28399: Fixed
+30708: Fixed
+30709: Fixed. 
+
+
