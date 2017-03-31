@@ -28,6 +28,7 @@ The code is written to work with a DOS GUI called Metashel, which was an early 1
 It is possible to run the Chaos programs inside a DOS shell called DOSBox---more info on this in the comments on the Release package.
 
 Placed on GitHub at www.github.com/rudyrucker/chaos
+
 Released under a Gnu general public license, version 3.
 
 --- Rudy Rucker, March 31, 2017.
