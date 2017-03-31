@@ -25,9 +25,9 @@ Cellular_Automata is for the "Toy Universe" module which shows cellular automata
 
 The code is written to work with a DOS GUI called Metashel, which was an early 1980s TSR or "terminate and stay resident" program by MetaGraphics Software Corporation, then in Scotts Valley, CA. Thus metashel.exe is run in DOS before before the chaos program code. A copy of metashel.exe is distributed with the Chaos 1998 release download.
 
-It is possible to run the Chaos programs inside a DOS shell called DOSBox---more info on this in the comments on the Release package.
+It is possible to run the Chaos programs inside a DOS shell called DOSBox---more info on this in the Readme file on the Release page.
 
-Placed on GitHub at www.github.com/rudyrucker/chaos
+<a url="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Release 1.1</a>
 
 Released under a Gnu general public license, version 3.
 
