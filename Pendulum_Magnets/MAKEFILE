@@ -1,0 +1,179 @@
+NAME="Magnets_and_Pendulum"
+
+VERSION=0
+SUBVERSION=998
+CC=tcc
+AS=tcc -mc -v
+MW=\mw
+LINKER=tlink /v /m /s /c
+LB=\tc\lib
+LIBS=$(LB)\emu.lib $(LB)\mathl.lib $(LB)\cl.lib
+
+#GMLIBS=$(MW2)\mw_d1dmc.lib $(MW2)\met_bd1d.lib
+GMLIBS=$(MW)\mw_d1smc.lib
+
+CFLAGS=-v -ml -O -Z -G -f- \
+ -DVERSION=$(VERSION).$(SUBVERSION) -w -DPROGRAM_NAME=$(NAME) \
+ -DINCLUDE_FILE="mag.h" -g1 -DRELEASE
+
+#.RESPONSE_LINK: tlink
+#.SUFFIXES : .exe .obj .c .asm
+MAKE_TMP= $(TMP)
+COMPRESS=lharc u
+MAKESFX = lharc s /x
+SOURCES=\sources
+EXECUTABLES=\executables
+.asm.obj:
+	tasm /ml /zi $<
+
+.c.obj:
+	$(CC) @&&!
+$(CFLAGS) -c $<
+!
+
+all: magnetx.exe
+
+MAGNETSSRCS1=\
+        main.c \
+        keyboard.c \
+        newmags.c \
+        jgif.c \
+        system72.fnt \
+        newsel.c \
+        jgetstri.c \
+	diskerr.c \
+        button.c \
+	infobox.c
+
+MAGNETSSRCS2=\
+        jhelp.c \
+        jpushpop.c \
+	allocate.c \
+        ballmove.c \
+        jgraph.c \
+        rowblast.asm \
+        comprs.c \
+	decoder.c
+
+MAGNETSSRCS3=\
+        slider.c \
+	palette.c \
+        utils.c \
+        options.c \
+        files.c \
+	charge.c \
+	basin.c
+
+
+MAGNETSHDRS1= \
+	rugraph.h \
+	usual.h \
+	scodes.h  \
+        mag.h \
+        buttons.h \
+        magdefs.h \
+        magvars.h \
+	magexts.h
+
+MAGNETSHDRS2 = \
+	grports.h \
+	grfonts.h \
+	grconst.h \
+	grextrn.h \
+	metcompl.h \
+	gif.h \
+	magstruc.h
+
+MAGNETHLPS = \
+        magnets.hlp \
+        magfile.hlp \
+        magcharg.hlp \
+        magpal.hlp \
+        select.hlp \
+	magopts.hlp
+
+
+MAGNETOTHERS = ! magbug.fix magnets.pal
+
+
+MAGNETSOBJS=\
+        main.obj \
+        keyboard.obj \
+        newmags.obj \
+        jgraph.obj \
+        jhelp.obj \
+        jpushpop.obj \
+	allocate.obj \
+        jgif.obj \
+        comprs.obj \
+        ballmove.obj \
+        newsel.obj \
+        jgetstri.obj \
+        rowblast.obj \
+        decoder.obj \
+        diskerr.obj \
+        slider.obj \
+	palette.obj \
+        utils.obj \
+        button.obj \
+        infobox.obj \
+        options.obj \
+        files.obj \
+	charge.obj \
+	basin.obj
+
+magnetx.exe: $(MAGNETSOBJS)
+	$(LINKER) @&&!
+$(LB)\c0l $(MAGNETSOBJS)
+magnetx
+magnetx
+$(GMLIBS) $(LIBS)
+!
+
+EXEC=magx$(VERSION)$(SUBVERSION)
+SRC=mags$(VERSION)$(SUBVERSION)
+
+beta: magnetx.exe
+	-tdstrip magnetx.exe
+	-del $(EXEC).exe
+	copy readmag.now+extract.q !
+	$(COMPRESS) $(EXEC) magnetx.exe readmag.now
+#	$(COMPRESS) $(EXEC) $(MAGNETHLPS)
+	$(COMPRESS) $(EXEC) $(MAGNETOTHERS)
+	$(MAKESFX) $(EXEC).lzh
+        move $(EXECUTABLES)\magx*.exe $(EXECUTABLES)\old
+	copy $(EXEC).exe $(EXECUTABLES)
+	@echo Magnet$(VERSION)$(SUBVERSION) created!
+
+
+srckit:
+	-del $(SRC).exe
+	copy srckit.doc+extract.q !
+	$(COMPRESS) $(SRC) $(MAGNETSSRCS1)
+	$(COMPRESS) $(SRC) $(MAGNETSSRCS2)
+	$(COMPRESS) $(SRC) $(MAGNETSSRCS3)
+	$(COMPRESS) $(SRC) $(MAGNETSHDRS1)
+	$(COMPRESS) $(SRC) $(MAGNETSHDRS2)
+#	$(COMPRESS) $(SRC) $(MAGNETHLPS)
+	$(COMPRESS) $(SRC) $(MAGNETOTHERS)
+	$(COMPRESS) $(SRC) makefile readmag.now mag.bat d.bat
+	$(COMPRESS) $(SRC) srckit.doc ! extract.q
+	$(MAKESFX) $(SRC).lzh
+        move $(SOURCES)\mags*.exe $(SOURCES)\old
+	copy $(SRC).exe $(SOURCES)
+	@echo Magnet source kit version $(VERSION)$(SUBVERSION) built!
+
+lines:
+	lines @&&!
+$(MAGNETSSRCS1)
+$(MAGNETSSRCS2)
+$(MAGNETSSRCS3)
+!
+
+
+clean:
+	del *.obj
+	del *.map
+
+
+release: clean beta srckit

@@ -1,0 +1,374 @@
+Magnets version 0.998
+Disabled some code.
+
+Magnets version 0.997
+File selector problem.
+Magnet drag problem.
+
+Magnets version 0.996
+Palette loading error.
+
+Magnets version 0.995
+32992: Fixed.
+32993: Fixed. Annoying shit.
+32994: Fixed.
+
+
+Magnets version 0.994
+32939: Fixed
+Magnets version 0.993
+TMP bug fixed.
+32982: Fixed.
+31887: Fixed.
+
+Magnets version 0.992
+Drive A crash fixed.
+32972: a) number fixed
+       b) 'S' fixed
+       c) diameter fixed; also made a slight change -- I saw no reason
+          for changing the radius to change the charges.
+
+Magnets versin 0.991
+32967: Fixed.
+32961: Fixed.
+32969: Fixed.
+
+Magnets version 0.99
+Disk full checking implemented.
+
+Magnets version 0.98
+32954: Fixed.
+32955: a) Fixed.
+       b) Same bug, fixed.
+32956: Fixed. I hate ghosts. Scary.
+32959: Fixed.
+
+
+Magnets version 0.97
+32946: Nothing happens at all when we change forcetypes; it's just a flag
+that determines which of two methods to use when calculating each step. So
+I couldn't replicate this bug, and I couldn't see anything that might be
+causing it.
+32949: Fixed.
+32950: Fixed. And also 'j' was screwing up. Fixed. Maybe I have all
+these straight by now.
+
+Magnets virgin 0.96
+32855: Fixed
+32846: Fixed. 
+
+Maggots version 0.95
+32942: Eep! Interesting one. It actually could have happened at most
+       any time, I suspect. If the ball and the club position happened
+       to coincide when you moved the cursor, it would crash (divide by
+       zero.) Just so happens that it's pretty hard to do that exactly;
+       but having a low centerpull meant that the ball stayed at pixel
+       0,0 just long enough to want to move the club -- and BANG. Fixed.
+32943: Eeep! Same bug as 32942, as it turns out.
+32852: Done. Actually works nicely.
+32941: OK. Done. 
+
+I also fixed two unreported bugs: loading a basin file was leaving an
+extra club or box on the screen (if you clicked on the files menu,
+rather than using alt-L); also, in Basins, alt-R was leaving a phantom
+Bob on the screen.
+
+
+
+Magnets version 0.94
+No bug fixes; memory management release.
+
+Magnets version 0.93
+32845: Fixed. Cute.
+32846: What do you think I should be doing with a 640x480x256 gif? There's
+       not a standard way of displaying it; the 256 colors don't help at
+       all if I don't have super VGA. The EGA only mode is faking out
+       the colors by searching for appropriate matches. Here is my
+       algorithm:
+           if I've got a VGA
+           {
+              if there are > 16 colors
+                 use VGA 320x200x256 mode
+              else if height > 350
+                 use VGA 640x480x16
+              else
+                 use EGA 640x350x16
+           }
+           else
+               use EGA 640x350
+ 
+
+
+       If there isn't a VGA, I also try to match the colors with the
+       EGA palette. In all cases, I stop at the end of the physical
+       screen.
+
+       Attract's .GIF viewer might work if you are lucky, but more
+       likely it will show bogus stuff with nonsense colors.
+
+32858: Fixed.
+32859: Mostly fixed. Occasionally weird, but its not so bad as I want
+       to spend a lot more time on it right now; my brain hurts from
+       this one...
+
+                                                                                                
+       
+
+Magnets version 0.92
+32843: Fixed. Thanks for the further analysis. (Nobody even noticed
+       that one of the magnets was being inserted as black; this was
+       the key to the problem -- I was xor erasing them with a 
+       color other than that I'd painted it with.)
+
+32844: Fixed. Almost missed the "also"; report each such occurance as
+       a different bug please. Josh much too literal; if you don't
+       say "Two bugs", he'll just get one cockroach unless it is 
+       Guy Fawkes Day.
+
+32846: OK. Fixed. Remind me (bug reports!) to make all the gif viewers
+       match both their line output and setup routines to that in
+       Magnets.
+
+32847: Done. Option buttons are irrelevant; the numbers are pasted in
+       dynamically.
+
+32848: Done.
+32849: Please tell Rudy to make his error messages more coherant. "Right
+       clicking when moving with arrow keys" was meaningless. But I chased
+       it down and ... Fixed.
+32850: Fixed.
+32851: Fixed.
+32852: Appears to be missing? Where is it? At any rate, this is a preference,
+       not a bug, and I like the way the right arrow works (consistantly
+       on all buttons, it takes you to the main screen.) If I get outvoted,
+       I'll change it.
+
+32853: Fixed.
+32854: Yeah, it was, wasn't it? Fixed.
+32855: Beats the living shit out of me. I don't have the hardware to test 
+       this one, and I'm not doing anything that I know of that would
+       cause this to happen.
+32856: Fixed.
+32857: Fixed. Never was correct. fspeedx and fspeedy weren't being
+       zeroed at the beginning of each point, which meant each point
+       was happily starting with a non-xeroxed speed.
+
+
+
+Magnets version 0.91
+31801: Fixed
+31890: Fixed for buttocks. Oops buttons.
+31891: Ooh poo. Fixed. Hey ho, hey ho.
+31892: Fixed. No cute comment.
+31902: Fixed.
+32828: Done.
+32829: Done.
+32830: I think it is better now. I like it better.
+32831: Yeah, these new Microsoft mice are amazingly responsive; too
+       responsive, in my opinion, for a lot of programs. I'd recommend
+       that people check to see if changing the mouse acceleration in
+       their mouse control panel programs makes any difference.
+       (Nyah nyah nyah nyah nyah, he's blaming it on the hardware!)
+       I imagine I could do some serious work about this, but I don't
+       think it is really worth the effort.
+32832: A hairy mother bitch to fix, but I dun it. I also discovered
+       that different numbers for the "timeout" to occur cause different
+       interesting patterns. It is a parameter that deserves a tweaker.
+       Oh well. Oh well.
+
+32833: Done. All three places. Thanks for doing it this way; it really
+       helps.
+32834: Ditto.
+32835: Fixed.
+32836: Fixed.
+32837: Fixed.
+32838: Fixed.
+32839: Fixed.
+32840: Fixed.
+32841: Fixed.
+32842: Fixed.
+32843: Fixed.
+
+
+
+Magnet version 0.90
+31887: Fixed, I think. What a tough one. What a pain in the ass. Longest
+       its taken me to fix any bug in this thing.
+31888: Fixed.
+31889: Fixed. Behaviour at end of Basins run is to make a GIF file, and 
+       then sit stupidly.
+31890: Fixed.
+31891: Minimum settable trail length is now 2. If you don't want a trail,
+       you have to specify it explicitly.
+31892: Fixed.
+31893: Fixed.
+31894: (Main bug report seems to have vanished for this, but I know
+       what it is and fixed it anyway.)
+31895: (Likewise)
+31896: (This one seems to simply not exist.)
+31897: Fixed
+31898: Fixed.
+31899: Fixed.
+31900: Fixed.
+31901: Fixed. If this shows up in other modules, tell me to set
+       "aspect" correctly.
+31902: Fixed. Actually a bug in two modules: jgif.c and newsel.c. Please
+       remind me of this if possible in reporting the same thing for
+       every module.
+31903: Fixed.
+31904: Fixed.
+31905: Fixed.
+
+
+
+
+
+Magnet bug fixes as of version 26
+(***) means the bug has been designed away
+
+27812: ***
+27813: ***, I think
+27817: ***
+27829: ***
+27831: ***
+27832: ***
+27837: Fixed
+27838: Fixed, I think.
+27839: I think this one is a bad report
+27851: Fixed
+27852: Not fixable; the disk error report comes up at
+       a very low level, and getting mouse activity here
+       is more work than I care to do at this point.
+27853: Fixed.
+27854: Not going to be fixed. Not how it works.
+27855: Fixed
+27856: Fixed
+27857: No. Not how it works.
+27858: Fixed.
+27859: ***
+27860: ***
+27861: ***
+27862: Fixed
+27863: Fixed
+28864: ***
+27865: Fixed
+27866: Fixed
+27867: Fixed
+27870: Fixed; had to do with the starting layout
+28312: ***
+28313: Fixed
+28320: Fixed
+28321: Fixed
+28322: Fixed
+28323: Fixed
+27324: Fixed
+28325: Fixed
+28326: Fixed
+28327: Fixed
+28328: Fixed
+30700: Now they range from -500 to 500 everywhere.
+30701: Fixed
+30702: Fixed
+30703: Fixed
+30704: Fixed
+30705: Fixed
+30706: Fixed
+30707: No, + and - are used for other things here.
+
+
+
+
+
+Bugs fix reports from previous release:
+BUG FIX STATUS:
+
+27800: Fixed. Hard error handling (mostly drive not ready) is now
+        done properly. The only thing I haven't been able to trap 
+        is the ugly message that comes up on a one-floppy system
+        when drive 'B' is selected; and I can't figure out how
+        to detect this condition.
+
+27801: Fixed. This error (which probably exists in all other CHAOS
+        programs) was caused by the fact that Turbo-C
+        can't deal properly with filenames like
+        A:\\XYZ, even though DOS can deal with it just fine. Error
+        was in JSELECT.C.
+
+27802: Fixed. 
+
+27803: Fixed. Also, the saved param files are slightly different,
+        and there is no longer a requirement to put all the data
+        in the same order as the program writes (in other words,
+        we're paying attention to the keywords.)
+
+27804: Good idea, implemented.
+
+27805: Fixed. 
+
+27806: Fixed.
+
+27807: Fixed.
+
+27808: This is an installation problem; if SYSTEM72.FNT (for VGA mode)
+        or SYSTEM16.FNT (for EGA mode) aren't in the current directory,
+        the text will come out wrong.
+
+27809: Fixed.
+
+27810: Fixed; or at least, it went away when I made other changes to
+        the charge popup.
+
+27811: Made the problem go away; CHARGE popup doesn't come up when
+        there are zero magnets.
+
+27812: DEFERRED. Most of this can be dealt with by judicious editing
+        of the help files.
+
+27813: Fixed. Limit checking implemented. Some of the limits might be
+        a bit off.
+
+27814: Fixed.
+
+27815: Fixed, but I'm not sure I like the solution. There is now a little
+        message on the bottom of the menu display that says whether
+        basins are on or off.
+
+27816: Fixed, as far as I can tell. Some of the problem is gone; the
+        mouse won't move out of the Help window now.
+
+27817: See 27808.
+
+(27818-27828 do not deal with Magnets.)
+
+27829: DEFERRED. Maybe NAB, maybe a feature, maybe a bug. Needs further
+        consideration.
+
+27830: The charge editor has been redone; it's more consistant now.
+
+27831: DEFERRED until we work more on consistancy.
+
+27832: DEFERRED, same reason.
+
+27833: Fixed.
+
+27834: Fixed, I think.
+
+27835: Fixed.
+
+27836: Fixed.
+
+27837: Not sure about this. If you HOLD DOWN the spacebar, it will 
+        slow down the simulation, but that's because it is going
+        start-stop-start-stop as long as the bar is held down. Pressing
+        the spacebar once stops it, pressing it again starts it. Perhaps
+        not a bug at all.
+
+27838: Let's run this one by again; trails are important to look for, 
+        and I made a lot of them go away, but there might still be some.
+
+(27839 missing; is this in Mand?)
+
+27840: Fixed.
+
+
+

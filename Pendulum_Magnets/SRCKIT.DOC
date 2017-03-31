@@ -1,0 +1,23 @@
+This is the sourcekit for MAGNETS.
+
+Building MAGNETS:
+
+OPUS MAKE is used to build MAG. The attached makefile is used.
+Make sure your path is set to \tc\bin!
+
+The following tools were used:
+
+Turbo C (TCC) version 2.01
+TASM version 1.0
+TLINK version 2.0
+OPUS MAKE version 5.0.2
+Lharc version 1.13c
+
+
+So: To build MAG, just say "MAKE". The resulting file
+will be called MAGxx.EXE, where "xx" is the version number.
+To build a sourcekit, "make srckit"; to build a beta release
+package, with notes, say "make beta"; to make everything from
+scratch, say "make all".
+
+
