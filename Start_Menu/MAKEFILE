@@ -1,0 +1,105 @@
+VERSION=0
+SUBVERSION=09
+
+CC=tcc
+AS=tcc -mc -v
+GM=\gm
+MW=\mw
+LINKER=tlink /v /m /s /c
+LB=\tc\lib
+LIBS=$(LB)\emu.lib $(LB)\mathl.lib $(LB)\cl.lib
+GMLIBS=$(MW)\mw_d1smc.lib
+MAKE_TMP= $(TMP)
+COMPRESS=lharc u
+MAKESFX = lharc s /x
+CFLAGS=-v -ml -O -Z -G -f- -DVERSION=$(VERSION).$(SUBVERSION) \
+ -DPROGRAM_NAME="CHAOS" -w -DRELEASE -DNDEBUG
+
+SOURCES=\sources
+EXECUTABLES=\executables
+
+.asm.obj:
+	tasm /ml /zi $<
+
+.c.obj:
+	$(CC) $(CFLAGS) -c $<
+
+all: menu.exe
+
+CHAOSSRC1=\
+	menu.c utils.c button.c jpushpop.c
+
+CHAOSSRC2=\
+	jgetstring.c ailogo.c infobox.c
+
+CHAOSINC=\
+        menu.h \
+        grconst.h \
+        grextrn.h \
+        grfonts.h \
+        grports.h \
+        buttons.h \
+        metcompl.h \
+	scodes.h
+
+
+CHAOSOBJS=\
+        menu.obj \
+        utils.obj \
+        button.obj \
+        jpushpop.obj \
+        jgetstring.obj \
+        ailogo.obj \
+	infobox.obj
+
+menu.exe: $(CHAOSOBJS)
+	$(LINKER) @&&!
+$(LB)\c0l $(CHAOSOBJS)
+menu
+menu
+$(GMLIBS) $(LIBS)
+!
+
+
+beta:	menu.exe
+	type > ! &&!
+Chaos main menu version $(VERSION).$(SUBVERSION)
+Ready to self-extract?
+!
+	-tdstrip menu.exe
+	$(COMPRESS) chaosx9 menu.exe egalogo.mmg chaos.bat !
+	$(MAKESFX) chaosx9
+        move $(EXECUTABLES)\chaos*.exe $(EXECUTABLES)\old
+	copy $(EXEC).exe $(EXECUTABLES)
+
+smallbeta: menu.exe
+	type > ! &&!
+Chaos main menu version $(VERSION).$(SUBVERSION)
+This package does not include chaos.bat file or  egalogo.mmg
+Ready to self-extract?
+!
+	-tdstrip menu.exe
+	$(COMPRESS) menux9 menu.exe !
+	$(MAKESFX) menux9
+
+
+
+
+SRC=menus$(VERSION)$(SUBVERSION)
+
+srckit:
+	type > ! &&!
+Chaos main menu source kit version $(VERSION).$(SUBVERSION)
+Ready to self-annihilate?
+!
+
+	$(COMPRESS) $(SRC) $(CHAOSSRC1)
+	$(COMPRESS) $(SRC) $(CHAOSSRC2)
+	$(COMPRESS) $(SRC) $(CHAOSINC)
+	$(COMPRESS) $(SRC) makefile egalogo.mmg chaos.bat
+	$(MAKESFX) $(SRC)
+        move $(SOURCES)\menu*.exe $(SOURCES)\old
+	copy $(SRC).exe $(SOURCES)
+
+
+
