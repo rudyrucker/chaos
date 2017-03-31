@@ -1,6 +1,6 @@
 # James Gleick's CHAOS: The Software
 
-This is a free release of of a product that was called  "James Gleick's CHAOS: The Software." The software was written by Josh Gordon, Rudy Rucker and John Walker for Autodesk, Inc. Rucker wrote most of the algorithm, except for the Fractal Landscapes algorithms, which are by John Walker.  Gordon did the interface, and much of the implementation of the algorithm code.
+This is a free release of a product that was called  "James Gleick's CHAOS: The Software." The software was written by Josh Gordon, Rudy Rucker and John Walker for Autodesk, Inc. Rucker wrote most of the algorithm, except for the Fractal Landscapes algorithms, which are by John Walker.  Gordon did the interface, and much of the implementation of the algorithm code.
 
 <img src="http://www.rudyrucker.com/blog/images7/chaoscover.jpg" height="400" alt="Cover of Chaos Package" />
 
