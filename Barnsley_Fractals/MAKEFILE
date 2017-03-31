@@ -1,0 +1,275 @@
+# Makefile for the GAMESLEY portion of CHAOS. The entire build should be
+# done in a single directory. This makefile is designed to work with
+# Borland Turbo C++ MAKE.
+
+VERSION=0
+SUBVERSION=993
+PRODUCT_NAME="The_Chaos_Game"
+
+
+MODEL=l
+CC=tcc
+CFLAGS=-v -m$(MODEL) -DVERSION=$(VERSION).$(SUBVERSION) -DPROGRAM_NAME=$(PRODUCT_NAME) \
+-O -Z -G -w -DINCLUDE_FILE="game.h" -g1 -DRELEASE
+AS=tcc -ms -v
+LINKER=tlink /v /c /s
+LB=\tc\lib
+TCLIBS=$(LB)\emu.lib $(LB)\math$(MODEL).lib $(LB)\c$(MODEL).lib $(LB)\overlay.lib $(LB)\graphics.lib
+#TCLIBS=$(LB)\fp87.lib $(LB)\math$(MODEL).lib $(LB)\c$(MODEL).lib
+#.RESPONSE_LINK: tlink
+#.SUFFIXES : .exe .obj .c .asm
+MAKE_TMP= $(TMP)
+MW=\mw
+GMLIBS=$(MW)\mw_d1smc.lib
+COMPRESS=lharc u
+MAKESFX = lharc s /x
+SOURCES=\sources
+EXECUTABLES=\executables
+
+.asm.obj:
+	tasm /ml /zi /o $<
+
+.c.obj:
+	$(CC) $(CFLAGS) -Yo -c $<
+
+
+all: gamex.exe
+
+clean:
+	del *.obj
+	del *.map
+
+
+GAMESRCS= \
+        main.c \
+        gamea24.asm \
+        game_2.c \
+        menus.c \
+        jhelp.c \
+        jpushpop.c \
+        jgif.c \
+        comprs.c \
+        files.c \
+	canned.c
+
+GAMESRCS2 = \
+        newsel.c \
+        jgetstri.c \
+        rowblast.asm \
+        options.c \
+        tweaks.c \
+	allocate.c \
+	button.c \
+	infobox.c
+
+GAMESRCS3 = \
+        diskerr.c \
+        palette.c \
+        decoder.c \
+        slider.c \
+        blast.asm \
+        utils.c \
+        zoombox.c \
+        stamps.c \
+	weights.c
+
+GAMEINCS1= \
+        gif.h \
+        grconst.h \
+        grextrn.h \
+        grfonts.h \
+        grports.h \
+	metcompl.h
+
+GAMEINCS2=\
+        scodes.h \
+        buttons.h \
+        gamedefs.h \
+        gamevars.h \
+        gameexts.h \
+	game.h
+
+GAMEHLPS1= \
+        gamemain.hlp \
+        gamesel.hlp \
+        gamefile.hlp \
+        gamepal.hlp \
+	gamewght.hlp
+
+GAMEHLPS2=\
+        select.hlp \
+        zoomasp.hlp \
+        gameview.hlp \
+        gameopts.hlp \
+	gametwk.hlp
+
+
+
+
+
+
+GAMEOBJS1=\
+        main.obj \
+        gamea24.obj \
+        game_2.obj \
+        menus.obj \
+        jhelp.obj \
+        jpushpop.obj \
+        slider.obj \
+        newsel.obj \
+        jgetstri.obj \
+        decoder.obj \
+        comprs.obj \
+	allocate.obj \
+	jgif.obj
+
+GAMEOBJS2=\
+        rowblast.obj \
+        diskerr.obj \
+        palette.obj \
+        blast.obj \
+        utils.obj \
+        files.obj \
+        canned.obj \
+        options.obj \
+        tweaks.obj \
+        zoombox.obj \
+        stamps.obj \
+        weights.obj \
+        button.obj \
+	infobox.obj
+
+
+NONOVERLAYABLE_C_STUFF=\
+        main.obj \
+        game_2.obj \
+        menus.obj \
+        jpushpop.obj \
+	allocate.obj \
+        diskerr.obj \
+        utils.obj \
+        tweaks.obj \
+	button.obj
+
+ASM_STUFF=\
+        gamea24.obj \
+        rowblast.obj \
+        blast.obj \
+
+
+OVERLAYABLE_STUFF=\
+        jhelp.obj \
+        slider.obj \
+        newsel.obj \
+        jgetstri.obj \
+        decoder.obj \
+        comprs.obj \
+        jgif.obj \
+        palette.obj \
+        files.obj \
+        canned.obj \
+        options.obj \
+        zoombox.obj \
+        stamps.obj \
+        weights.obj \
+	infobox.obj
+
+
+
+#It looks like I need to specify for each fucking nonoverlayable file here.
+#The overlayable ones take the default.
+NOV_COMPILE=$(CC) $(CFLAGS) -Y -c $*
+
+main.obj: main.c
+	$(NOV_COMPILE)
+
+game_2.obj: game_2.c
+	$(NOV_COMPILE)
+
+menus.obj: menus.c
+	$(NOV_COMPILE)
+
+jpushpop.obj: jpushpop.c
+	$(NOV_COMPILE)
+
+diskerr.obj: diskerr.c
+	$(NOV_COMPILE)
+
+utils.obj: utils.c
+	$(NOV_COMPILE)
+
+system72.obj: system72.c
+	$(NOV_COMPILE)
+
+tweaks.obj: tweaks.c
+	$(NOV_COMPILE)
+
+button.obj: button.c
+	$(NOV_COMPILE)
+GAMEOTHERS=game.pal ! gamebug.fix
+
+gamex.exe: $(GAMEOBJS1) $(GAMEOBJS2)
+#       $(LINKER) $(LB)\c0$(MODEL) $(GAMEOBJS),gamex,,$(TCLIBS) $(GMLIBS)
+#       $(LINKER) $(LB)\c0$(MODEL) $(NONOVERLAYABLE_C_STUFF) $(ASM_STUFF) /o $(OVERLAYABLE_STUFF),gamex,,$(TCLIBS) $(GMLIBS)
+	$(LINKER) @&&!
+$(LB)\c0$(MODEL) $(NONOVERLAYABLE_C_STUFF) $(ASM_STUFF) /o $(OVERLAYABLE_STUFF)
+gamex
+gamex
+$(TCLIBS) $(GMLIBS)
+!
+extract.q:
+	type > extract.q &&!
+Ready to extract?
+!
+
+EXEC=gmex$(VERSION)$(SUBVERSION)
+SRC=gmes$(VERSION)$(SUBVERSION)
+
+beta: gamex.exe extract.q
+	-tdstrip gamex.exe
+	-del $(EXEC).exe
+	copy readgame.now+extract.q !
+	$(COMPRESS) $(EXEC) gamex.exe readgame.now
+#	 $(COMPRESS) $(EXEC) $(GAMEHLPS1)
+#	 $(COMPRESS) $(EXEC) $(GAMEHLPS2)
+	$(COMPRESS) $(EXEC) $(GAMEOTHERS)
+	$(MAKESFX)  $(EXEC).lzh
+        move $(EXECUTABLES)\gme*.exe $(EXECUTABLES)\old
+	copy $(EXEC).exe $(EXECUTABLES)
+	@echo Game version $(VERSION).$(SUBVERSION) created!
+
+
+srckit: gamex.exe extract.q
+	type > build.doc &&!
+This is the build kit for Game version $(VERSION).$(SUBVERSION)
+!
+
+	-del $(SRC).exe
+	copy build.doc+extract.q !
+	$(COMPRESS) $(SRC) $(GAMESRCS)
+	$(COMPRESS) $(SRC) $(GAMESRCS2)
+	$(COMPRESS) $(SRC) $(GAMESRCS3)
+#	 $(COMPRESS) $(SRC) $(GAMEHLPS1)
+#	 $(COMPRESS) $(SRC) $(GAMEHLPS2)
+	$(COMPRESS) $(SRC) $(GAMEINCS1)
+	$(COMPRESS) $(SRC) $(GAMEINCS2)
+	$(COMPRESS) $(SRC) makefile build.doc readgame.now
+	$(COMPRESS) $(SRC) $(GAMEOTHERS) system16.fnt system72.fnt
+	$(MAKESFX) $(SRC).lzh
+        move $(SOURCES)\gme*.exe $(SOURCES)\old
+	copy $(SRC).exe $(SOURCES)
+	@echo Game source kit version $(VERSION).$(SUBVERSION) built!
+
+
+
+
+release: clean srckit beta
+	@echo Game release version $(VERSION).$(SUBVERSION) built!
+
+lines:
+	lines @&&!
+$(GAMESRCS)
+$(GAMESRCS2)
+$(GAMESRCS3)
+!
+

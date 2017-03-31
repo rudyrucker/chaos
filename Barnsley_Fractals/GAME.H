@@ -1,0 +1,7 @@
+#include "GRconst.h"
+#include "GRports.h"
+#include "GRextrn.h"
+#include "gamedefs.h"
+#include "gamevars.h"
+#include "gameexts.h"
+#include "buttons.h"

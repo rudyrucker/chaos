@@ -1,0 +1,186 @@
+Version 0.993 -- Wrong help file
+
+Version 0.992 -- File selector problem.
+
+Version 0.991
+Killed autorepeat in current map selection.
+32998: Fixed.
+
+Version 0.990
+32990: fixed. (yikes!)
+
+Version 0.98
+TMP bug fixed.
+Mouse response in slow environments improved.
+32891: Fixed.
+32977: Fixed
+32978: Fixed.
+32979: Not really a bug. When the scale is zero, attempting to play with
+the corresponding rotation is meaningless, and all values collapse to
+or near a defaullt, which seems to be around 90...Perhaps we just
+need a readme comment: When the X scale is 0, the X rotation is meaningless.
+Or am I missing something here completely? 
+32980: Fixed
+32981: (This is the one about tweak display mode angles not wrapping
+past 180.) Fixed.
+
+
+
+Version 0.97: Drive A crash.
+32973: Fixed. Nasty bastard you were, finding this one. Snicker snee.
+32974: Real odd. I decided you jusdt can't zoom in far enough to cause
+the problem anymore. Tighter zoom limits. Who needs to zoom in that far
+anyway?
+
+Game version 0.96:
+32937: Fixed.
+32959: Fixed.
+32962: Fixed.
+32967: Fixed.
+
+
+Game version 0.94 lug nuts:
+32936: Fixed.
+32937: This one was simply a _motherfucker_. When I finally found it,
+three hours after starting the look, I was embarassed at what a dumb-ass
+mistake it was. One of my dumbest in a looong time. Fixed.
+32945: In the course of fixing this thing, I discovered that maps
+frames ('m' key) were screwing up _royally_ (and triangle editing
+as well.) Took me all goddamn night to fix. Eeek. But done. Please
+recreate your .IFS files with the new program; old ones _should_ load
+right, but you might have to do it by hand.
+
+
+Game version 0.93 fug bixes:
+
+
+32881: Fixed. (Is ENTER supposed to do anything here? I don't think
+       it is.)
+32934: Fixed.
+32935: Not a bug. If you try to zoom out too far, you hit the limits;
+       the actual "image" might well land on the top left corner of these
+       limits.
+32936: No no no no no no no.
+32937: Well...ya see, the - and + buttons are real close together. I think
+       what you are seeing is a click that slides left; it is possible
+       to confuse yerself by clicking on the left and the residual mouse
+       motion slides the clicker from the + to the - button. I couldn't
+       cause any serious problem to happen other than this inexactness.
+
+Game version 0.92 bug fixes, faxes, feexes, firxes. Foxes?
+
+Unreported but present on all modules: missing palette file causes
+black screen startup, often confused with hang. Fixed. Also, the
+TMP file problem has been fixed in this module; it needs to be fixed
+in all of them. I'm using the same preset palettes as in Hodge; they
+seem to work OK. 
+
+31873: I'm beginning to get fond of this one. Maybe I'm in love. It keeps
+       coming back to see me, priority 1 and all. Ah, this time it was
+       easy. Minimum "delta" is now 1e-6. This should be just fine.
+
+32881: Fixed.
+32882: OK. I check for a few things now:
+       a) There must be a list of from 2 to 20 maps, numbered 1 through
+          20. On previous versions they started at 0. There is now a 
+          version line; if there is no version line, 0 basing is used.
+          This kludge should be removed for release 1.00, but I wanted
+          to give people a chance to catch up on their old IFS files 
+          (or boot the 1 to 20 numbering. But we display the maps as 
+          numbered 1 to 20, so we should keep it consistant.) The order
+          of the maps within the file is unimportant, but they must all
+          be there (for example, 1 2 3 4, but not 1 2 4.)
+        
+
+        b) If the weights are not normalized, I put up a message and 
+           normalize them.
+
+        c) I don't do any checking on the viewport.
+
+        Sound right?
+
+32883: Fixed.
+32884: 20 is the limit. Wrapping around seems to have been done deliberately,
+       but it doesn't really make much sense, and is too destructive, and
+       doesn't _seem_ to have been documented anywhere. I pop up an error
+       box when you try to add past 20 maps.
+32885: Fixed.
+32886: Not all that scary, actually. I was blithely painting a rectangle from
+       0,0 to 0,0. Cute, eh? Fixed.
+32887: Done.
+32888: Done.
+       
+                  
+
+
+       
+
+Game version 0.91 bug fixes
+31801: Fixed
+31805: Fixed.
+31872: Fixed. 
+31873: I hate this one. Fixed. Broken again. Fixed. Fixed?
+
+32800: Fixed. Also got rid of Q.
+32801: Keys were all fucked up, weren't they?
+32802: No. No. A fucking million times no. I'll do this, but I
+       will NOT accept any more changes of this sort. This is a request
+       to add a new help screen. Fixed.
+32803: Fixed.
+32804: Fixed.
+32805: Fixed.
+32806: Again, two bugs in 1 report. First of all, the numbers could
+       overwrite. Second, the ranges were wrong. Help me be orderly and
+       mindless! Overwrite bug fixed; range bug fixed.
+32807: Fascinating. Actually had nothing to do with the particular
+       values. Anyway, fixed.
+32808: Nasty magic. It was happening if you were dragging the mousie
+       and it was on a button and you held down the mouse button and
+       then moved the mouse off the button. What a crude thing 
+       to do. Anyway, I fixed it. Very ugly.
+32809: Fixed.
+32810: Fixed. Now it's a bit smarter; when I do the "overwrite" check,
+       I also check if it is writable; if not, I don't even try (and
+       report the error.)
+
+32811: Fixed.
+32812: Fixed. Now there is about an em between the end of the text and the
+       screen border. Should be about right.
+
+
+
+Game version 0.90 bug fix status
+
+31872: Fixed
+31873: Fixed
+31874:
+31875: Fixed.
+31876: Fixed.
+31877: Fixed. Same thing happened when double clicking. 
+31878: Fixed. You could also overwrite parameter files;  also
+       fixed.
+31879: Fixed.
+31880: Fixed. Please report as bug on all modules:
+                 CHECK COMPRESS.C FOR MEMORY BUG
+31881: Fixed. 
+31882: Fixed
+31883: Fixed.
+31884: Fixed.
+31885: Fixed
+31886: Fixed.
+       
+
+
+
+Barnsley bug status as of version 115:
+
+30725: Fixed
+30726: Changed to F5 Opts
+30727: Fixed (oops!)
+30730: Fixed
+30731: Redesigned interface; but insufficient memory problems might
+       still happen: keep an eye open.
+30732: Fixed
+30733: Fixed (make sure to check this in all modules)
+30734: Completely redesigned interface
+
