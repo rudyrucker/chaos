@@ -1,0 +1,250 @@
+Version 0.996
+OOps, wrong file name in palette helper
+Version 0.995
+File selector problem.
+
+Version 0.994
+Little lines on options menu.
+
+Version 0.993 
+32997: Fixed.
+Version 0.992 -- missed a couple
+32983: Fixed.
+32984: Fixed. 
+
+Bug fixes version 0.991:
+TMP bug fixed.
+Cursor tracking on slow systems improved.
+
+32976: Fixed. Wasn't really a new fractal type; was just iterations
+being set too low.
+
+Bug fixes version 0.990:
+Drive A bug fix.
+32975: Fixed.
+
+Bug fixes version 0.98:
+(Verified 32959 and 92967). 
+
+Bug fixes version 0.96:
+32960: Oops. Fixed.
+32959: Fixed.
+
+
+Bug fixes version 0.95:
+32874: Now its fixed. Yup. Indeed. Yep. 
+32927: Oh poo. I like bells. Fixed.
+32931: Yeah ok. Fixed.
+
+Lizard philtres as of version 0.94:
+32861: Fixed, but the limit is now 1.0e-13.
+32926: Fixed.
+32927: Fixed.
+32928: Cut and paste programming strikes again. Fixed.
+32929: Fixxed.
+32930: Fixed.
+32931: OK.
+32932: Jawohl.
+32933: Fixed.
+
+
+
+Beetle phixes as of version 0.93:
+31930: I might have gotten it right. But this was a pretty piss-poor
+       bug report; nothing to indicate _which_ keys are failing. I can't
+       analyze every possible keystroke at this point, especially when
+       the person reporting the bug knows exactly what was causing it.
+32860: Fixed. The convoluted sample wasn't necessary; ALT-O simply
+       wasn't saving the stamp data.
+32861: Fixed. I haven't found a zoom limit that makes any difference.
+32862: Same bug as previous. 
+       High iterations, like 30000, will take a _long_ time, unsurprisingly.
+32863: Fixed. Now it returns to what it was before.
+32864: Fixed.
+32865: Fixed.
+32866: Fixed.
+32867: Fixed.
+32868: No, this is the way it is supposed to work. When choosing from
+       the hot keys, the current cursor position is used to determine 
+       the affected values; when choosing from the types menu, this isn't
+       possible, so the affected values are left unchanged.
+32869: I think it _is_ supposed to work with Rudy. But I disabled it for
+       the pure Mandel set. 
+32870: Likewise.
+32871: Fixed.
+32872: Done. (And not so pissant.)
+32873: Done.
+32874: Done. Magnets style.
+32875: So what? There are only a limited number of positions available,
+       and indeed, the parameters can require more space that that. What
+       do you suggest I do: truncate and guess which ones are more important?
+
+Bug fixes as of version 0.92:
+31801: Yup, it will be on all modules fer sure. Hey--tell the people
+to get a screen shot of the file selector from here: it's been slightly
+different from the file selector that appears in the manual (5 columns
+of letters instead of 4.) 
+
+31830: Fixed
+31928: Fixed
+31930: Fixed.
+
+31964: Yeah, it was broken! Fixed. Check _carefully_ all other
+       modules; I might have inadvertantly propagated this bug.
+31965: Hah! This was a funny one! Actually, if you look carefully,
+       it was drawing two lines: right on top of each other, XORing
+       each other out. Hee hee! I've moved the box a little bit so
+       it doesn't happen. But it just _happened_ to end up exactly
+       on the same line.
+31966: a) fixed
+       b) fixed (tsk tsk, you missed that it would also happen when
+          going too _small_.) 
+31967: Fixed. Oh I love these golden oldies.
+31968: Done.
+
+
+
+Bug fixes as of version 0.91:
+31828: Cursor now defaults to ESC button.
+31920: Fixed.
+31921: Fixed. Exists elsewhere, fer sure. 
+31922: Fixed.
+31923: Ranges fixed. I couldn't get the other thing to happen
+       at all; it might have disappeared when I updated to
+       the control-U checking string getter.
+31924: Fixed.
+31925: Hairy little bug, no? Fixed.
+31926: Fixed. 
+31927: Fixed. This one is almost certainly present elsewhere.
+31928: Fixed.
+31929: Fixed.
+31930: Fixed, I think. Rudy needs to triple-check.
+31931: Yeah, it does. So what? Here's my logic: freeing up colors makes
+       the algorithm for picking colors different; I have it act the
+       same way as changing the bandwidth. Not a bug.
+31932: Fixed. This one is almost certainly present elsewhere.
+31933: Fixed.
+31934: Fixed.
+31935: Fixed.
+
+       
+
+Bug fixes as of version 0.90
+
+(One reported but unnumbered bug regarding the 'c' key was fixed;
+some bozo programmer named Josh had left out an else statement.
+Oops.)
+
+31804: Recompilation made this go away; clearly I'd changed a header
+       file and didn't recompile everything.
+31807: Fixed
+31808: Who says it is supposed to reset any values? None
+       of my documentation indicates such. All 'M' does is
+       select the Mandelbrot set; if we are returning from
+       a cubic Mandel, it will reset the values, but not
+       otherwise. I can change this if it really is a bug,
+       but otherwise, it seems to be a problem in understanding
+       what M does.
+31809: Pan redesigned.
+31810: Fixed
+31811: Fixed
+31812: Fixed
+31813: Fixed
+31814: Fixed; check in all other modules
+31815: No can do, I think. Here's the deal: the name line comes
+       up when and only when a named thing is loaded. I think it
+       would be confusing if sometimes hitting ALT-I did one thing,
+       and sometimes did another. Dig?
+31816: Fixed
+31817: Fixed
+31818: Fixed.
+31819: Fixed. Zoom will stop when it reaches the singularity point.
+31820: Fixed
+31821: If it was related to 31807, it is gone. Otherwise, I can't
+       repeat it.
+31822: Fixed.
+31823: Fixed.
+31824: Fixed.
+31825: This is how it supposed to work. If you zoom or change something
+       before a full screen is painted, no stamp is created (except for
+       the very first one, which is canned.)
+31826: Fixed.
+31827: This is what is supposed to do: the program beeps when it goes
+       in and out of floating point mode.
+31828: Too bad. NAB. Not fixing. I can alleviate the problem by making
+       CANCEL the default, if it's really a hassle. 
+
+31829: Zoomout limits changed from width of 4 to width of 5.6. (In
+       other words, fixed.)
+31830: Here and elsewhere, this is NAB. ESC is one of the exit keys.
+31831: Fixed. Minimum zoombox size is now 4 pixels by 4 pixels.
+31832: ALT-Z now turns off zoom box. ALT-Z should be documented
+       as the canonical zoombox key; the space in Mand is just an
+       added bonus.
+
+       
+
+
+
+
+
+
+
+Bug fixes as of version 68. (***) means the section in question
+was completely rewritten, and the bug is obsolete.
+
+27826: (***)
+27848: Spiral draw has been removed.
+28329: It now will read F1 HELP on all menus.
+28330: (***)
+28331: Fixed.
+28332: Fixed.
+28333: Not a bug, something Cindy wants, and inconsistant
+       with every other program. GIF viewing will return
+       to a file selector; otherwise, all file menu items
+       exit the file menu.
+28334: Done.
+28335: Done.
+28336: (***)
+28337: (***)
+28338: (***)
+28339: (***)
+28340: A real bug! Thanks, fixed.
+28341: Fixed.
+28342: Zoom now has its own help file.
+28343: Fixed. Spacebar now toggles properly.
+28344: NAB. Zooming out is based on the cursor location when you zoom
+       out. Hence, the only way to do it exactly is either to use the
+       centering key, or to put the cursor exactly in the middle of the
+       screen and DEL or right-click.
+28345: Fixed.
+28346: Fixed. A tough one. Thanks.
+28347: Fixed.
+28348: Fixed.
+28349: Fixed.
+28350: Done.
+28351: (***)
+28352: (***)
+28353: (***)
+28354: (***)
+28355: (***)
+28356: (***)
+28357: This addresses several different things. I've fixed it so that
+       the DEL key zooms out, as is reasonable. However, I don't think
+       the zoombox size should be saved if you hit escape or spacebar;
+       escape means "I didn't mean to do any of this, cancel please"
+       and the original zoom factor is maintained.
+28358: Fixed.
+28359: RUDY!!!
+28360: (***)
+28361: (***)
+28362: (***)
+28363: (***)
+28364: (***)
+28365: Fixed.
+28366: Fixed.
+28367: Fixed.
+28368: Fixed.
+28386: Fixed.
+30723: Fixed.
+30724: Fixed.

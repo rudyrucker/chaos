@@ -1,0 +1,24 @@
+Building MAND:
+
+Only one variable in the makefile might need to be changed; that
+is LB, which should point to the Turbo-C libraries. 
+
+The following tools were used:
+
+Turbo C++ (TCC++) version 1.00
+TASM version 2.0
+TLINK version 3.0
+Turbo MAKE version 3.0
+LHARC version 1.13c
+
+
+So: To build MAND, modify "makefile" so that LB points to
+the right place, and just say "MAKE". The resulting file
+will be called MANDxx.EXE, where "xx" is the version number.
+To build a sourcekit, "make srckit"; to build a beta release 
+package, with notes, say "make beta"; to make everything from
+scratch, say "make all".
+
+
+
+

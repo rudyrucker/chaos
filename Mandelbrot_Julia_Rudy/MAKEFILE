@@ -1,0 +1,243 @@
+# Makefile for the MAND portion of CHAOS. The entire build should be
+# done in a single directory. This makefile is designed to work with
+# TURBO MAKE.
+
+#.AUTODEPEND
+
+VERSION=0
+SUBVERSION=996
+
+MODEL=l
+CC=tcc
+CFLAGS=-v -m$(MODEL) -O -Z -G -DVERSION=$(VERSION).$(SUBVERSION) -w -u -DPROGRAM_NAME="The_Mandelbrot_Sets"\
+ -g1 -DINCLUDE_FILE="mand.h" -DRELEASE
+AS=tcc -ms -v
+LINKER=tlink /v /c /s /m /yx /ye
+LB=\tc\lib
+TCLIBS=$(LB)\emu.lib $(LB)\math$(MODEL).lib $(LB)\c$(MODEL).lib
+MAKE_TMP=$(TMP)
+MW=\mw
+GMLIBS=$(MW)\mw_d1smc.lib
+COMPRESS=lharc u
+MAKESFX = lharc s /x
+SOURCES=\sources
+EXECUTABLES=\executables
+.asm.obj:
+	tasm /ml /zi $<
+
+.c.obj:
+	$(CC) @&&!
+$(CFLAGS) -c -Y $<
+!
+
+.c.ovj:
+	$(CC) @&&!
+$(CFLAGS) -c -Yo -o$*.ovj $<
+!
+
+all: mandelx.exe
+
+clean:
+	del *.o?j
+	del *.map
+
+
+MANDSRCS=main.c \
+        mand_2.c \
+        manda39.asm \
+        rowblast.asm \
+        jgif.c \
+        comprs.c \
+        decoder.c \
+        jhelp.c \
+#
+MANDSRCS2= \
+        jpushpop.c \
+        menus.c \
+        newsel.c \
+        blast.asm \
+        jgraph.c \
+        jgetstri.c \
+        palette.c \
+        slider.c \
+        types.c \
+        utils.c \
+	button.c
+#
+MANDSRCS3=\
+        keyboard.c \
+        diskerr.c \
+        params.c \
+        files.c \
+        options.c \
+        zoombox.c \
+        mand10.c \
+        mand12.c \
+
+MANDSRCS4=\
+        presets.c \
+	allocate.c \
+	infobox.c
+
+
+
+#
+MANDINCS1=\
+        gif.h \
+        grconst.h \
+        grextrn.h \
+        grfonts.h \
+        grports.h \
+	metcompl.h
+
+MANDINCS2=\
+        mand.h \
+        mandvars.h \
+        mandexts.h \
+        manddefs.h \
+        scodes.h \
+        utils.h \
+	buttons.h
+
+MANDHLPS1= \
+        mand.hlp \
+        mandpal.hlp \
+        mandtype.hlp \
+        mndtweak.hlp \
+	mandview.hlp
+
+
+MANDHLPS2=\
+        mandfile.hlp \
+        select.hlp \
+        mandopts.hlp \
+	zoomvar.hlp
+
+MANDOTHERS=mandel.pal ! mandbug.fix \
+        system16.fnt \
+	system72.fnt
+
+MANDOBJS=main.obj \
+        mand_2.obj \
+        manda39.obj \
+        jgif.obj \
+        decoder.obj \
+        blast.obj \
+        comprs.obj \
+        jhelp.obj \
+        rowblast.obj \
+        jpushpop.obj \
+	allocate.obj \
+        menus.obj \
+        newsel.obj \
+        jgraph.obj \
+        jgetstri.obj \
+        slider.obj \
+        palette.obj \
+        diskerr.obj \
+        params.obj \
+        files.obj \
+        options.obj \
+        zoombox.obj \
+        keyboard.obj \
+        mand12.obj \
+        mand10.obj \
+        types.obj \
+        utils.obj \
+        button.obj \
+        presets.obj \
+	infobox.obj
+
+MAND_UNDERLAY=\
+        main.obj \
+        mand_2.obj \
+        manda39.obj \
+        blast.obj \
+        rowblast.obj \
+        jpushpop.obj \
+	allocate.obj \
+        menus.obj \
+        jgraph.obj \
+        diskerr.obj \
+        keyboard.obj \
+        mand12.obj \
+        mand10.obj \
+        utils.obj \
+        button.obj \
+
+MAND_OVERLAY=\
+        jgif.ovj \
+        decoder.ovj \
+        comprs.ovj \
+        jhelp.ovj \
+        newsel.ovj \
+        jgetstri.ovj \
+        slider.ovj \
+        palette.ovj \
+        params.ovj \
+        files.ovj \
+        options.ovj \
+        zoombox.ovj \
+        types.ovj \
+        presets.ovj \
+	infobox.ovj
+
+mandelx.exe: $(MAND_UNDERLAY) $(MAND_OVERLAY)
+	$(LINKER) @&&!
+$(LB)\c0$(MODEL) $(MAND_UNDERLAY) /o $(MAND_OVERLAY)
+mandelx
+mandelx
+$(TCLIBS) $(GMLIBS) $(LB)\overlay
+!
+
+extract.q:
+	type > extract.q &&!
+Ready to extract?
+!
+
+EXEC=mndx$(VERSION)$(SUBVERSION)
+SRC=mnds$(VERSION)$(SUBVERSION)
+
+
+beta: mandelx.exe extract.q
+	-tdstrip mandelx.exe
+	-del $(EXEC).exe
+	copy readmand.now+extract.q !
+	$(COMPRESS) $(EXEC) $(MANDOTHERS)
+	$(COMPRESS) $(EXEC) mandelx.exe readmand.now
+	$(MAKESFX)  $(EXEC)
+        move $(EXECUTABLES)\mnd*.exe $(EXECUTABLES)\old
+	copy $(EXEC).exe $(EXECUTABLES)
+	@echo Mandx$(VERSION)$(SUBVERSION) created!
+
+
+mands$(VERSION)$(SUBVERSION).exe srckit: mandelx.exe extract.q
+	-del $(SRC).exe
+	copy readmand.now+extract.q !
+	$(COMPRESS) $(SRC) $(MANDSRCS)
+	$(COMPRESS) $(SRC) $(MANDSRCS2)
+	$(COMPRESS) $(SRC) $(MANDSRCS3)
+	$(COMPRESS) $(SRC) $(MANDSRCS4)
+	$(COMPRESS) $(SRC) $(MANDINCS1)
+	$(COMPRESS) $(SRC) $(MANDINCS2)
+	$(COMPRESS) $(SRC) $(MANDOTHERS)
+	$(COMPRESS) $(SRC) makefile build.doc
+	$(MAKESFX)  $(SRC)
+        move $(SOURCES)\mnd*.exe $(SOURCES)\old
+	copy $(SRC).exe $(SOURCES)
+	@echo Mand source kit version $(VERSION).$(SUBVERSION) built!
+
+
+
+
+release: clean srckit beta
+	@echo Mand release version $(VERSION).$(SUBVERSION) built!
+
+lines:
+	lines @&&!
+$(MANDSRCS)
+$(MANDSRCS2)
+$(MANDSRCS3)
+$(MANDSRCS4)
+!
+
