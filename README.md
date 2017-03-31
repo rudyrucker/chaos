@@ -4,9 +4,9 @@ This is a free release of of a product that was called  "James Gleick's CHAOS: T
 
 The software was originally released by Autodesk, Inc., in 1990, and was placed in copyright to Autodesk at that time.  When the product went out of print in about 1992, Autodesk transferred intellectual property rights for the product to James Gleick.  Gleick agrees that the software can be freely released under a Gnu license.
 
-#Release 1.1
+# Release 1.1
 
-The executable and parameter files. It is possible to run the Chaos program on any virutally any platgorm inside a DOS shell called DOSBoxage. Details on the release page.
+The executable and parameter files. It is possible to run the Chaos program on any virutally any platgorm inside a DOS shell called DOSBox. Details on the release page.
 
 <a url="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Release 1.1 page</a>
 
