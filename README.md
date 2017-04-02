@@ -18,19 +18,19 @@ You are free to alter the code and upload new versions.  The biggest outstanding
 
 # What's In Chaos
 
-<img src="http://www.rudyrucker.com/chaos/startmenu.GIF" height="400" alt="" />
+<img src="http://www.rudyrucker.com/chaos/startmenu.GIF" width="400" alt="" />
 
 CHAOS has six modules.
 
-<img src="http://www.rudyrucker.com/chaos/mandelheart.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/mandelroar.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/rhorse.GIF" height="400" alt="" />
+<img src="http://www.rudyrucker.com/chaos/mandelheart.GIF" width="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/mandelroar.GIF" width="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/rhorse.GIF" width="400" alt="" />
 
 MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Julia sets, quadratic and cubic Mandelbrot sets, and a gnarly cubic connectedness map called the <a href="http://tinyurl.com/rudyfractals">Rudy  set</a>.
 
-<img src="http://www.rudyrucker.com/chaos/magnet.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/magnetbasins.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/magnet.GIF" width="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/magnetbasins.GIF" width="400" alt="" />
 
  MAGNETS. A <i>Pendulum and Magnets</i> program showing chaotic physical motion and fractal basins of attraction.
 
-<img src="http://www.rudyrucker.com/chaos/attracthenon.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com chaos/attractlogistic.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/attractyorke.GIF" height="400" alt="" />
+<img src="http://www.rudyrucker.com/chaos/attracthenon.GIF" width="400" alt="" /> <img src="http://www.rudyrucker.com chaos/attractlogistic.GIF" width="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/attractyorke.GIF" width="400" alt="" />
 
  ATTRACT. A <i>Strange Attractors</i> program showing the Lorenz Attractor, the Logistic Map, the Yorke Attractors, and the Henon Attractors.
 
