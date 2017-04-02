@@ -1,38 +1,43 @@
 # James Gleick's CHAOS: The Software
 
-This is a free release of a product that was called  "James Gleick's CHAOS: The Software." The software was written by Josh Gordon, Rudy Rucker and John Walker for Autodesk, Inc. Rucker wrote most of the algorithm, except for the Fractal Landscapes algorithms, which are by John Walker.  Gordon did the interface, and much of the implementation of the algorithm code.
+This is a free release of the source, manual, and executables of a 1991 Autodesk DOS program that was called  "James Gleick's CHAOS: The Software." The software was written by Josh Gordon, Rudy Rucker and John Walker. Rucker wrote most of the algorithms, except for the Fractal Landscapes algorithms, which are by John Walker.  Josh Gordon did the interface, and much of the implementation of the algorithm code. This release is under a Gnu license.
 
 <img src="http://www.rudyrucker.com/blog/images7/chaoscover.jpg" height="400" alt="Cover of Chaos Package" />
 
-The software was originally released by Autodesk, Inc., in 1991, and was placed in copyright to Autodesk at that time.  When the product went out of print in about 1992, Autodesk transferred intellectual property rights for the product to James Gleick.  And Gleick agrees that now the software and manual can be freely released under a Gnu license.
+Downloads for the Release 1.l
 
-The CHAOS User manual is now free <a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">online at GitHub</a> as well. 
+<a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">The CHAOS User manual</a>. 
 
-# Release 1.1
+<a href="https://github.com/rudyrucker/chaos/archive/v1.1-chaos.zip">The CHAOS source code.</a>
 
-<a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Download page</a> for the executable and parameter files, for the source, and for the manual. 
+<a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_v1_1.zip">The CHAOS executables and parameter files.</a>
 
- It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox.
+It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Release page</a>. 
 
-# Note on the Source Code
+# What's In Chaos
 
-The code is DOS and assembly code.  A makefile is in each directory. The builds were compiled and assembled using Turbo C and Tasm.
+<img src="http://www.rudyrucker.com /chaos/startmenu.GIF" alt="" />
 
-The code is in six directories, one for the start Menu, and one for each of the five component Chaos programs.
+CHAOS has six modules.
 
-Start_Menu has the code for the start menu screen which is launched by the chaos.bat file.
+<img src="http://www.rudyrucker.com /chaos/mandelheart.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/mandelroar.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/rhorse.GIF" alt="" />
 
-Strange_Attractors is the directory with the "Strange At
-tractors" module, including the Lorenz attractor, the Logistic map, and others.
+MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Julia sets, quadratic and cubic Mandelbrot sets, and a gnarly cubic connectedness map called the <a href="http://tinyurl.com/rudyfractals">Rudy  set</a>.
 
-Pendulum_Magnets is the "Magnets and Pendulum" which emulates a chaotic physical motion.
+<img src="http://www.rudyrucker.com /chaos/magnet.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/magnetbasins.GIF" alt="" />
 
-Mandelbrot_Julia_Rudy is for the "Mandelbrot Sets" module which also include Julia sets, cubic Mandelbrot sets, and the Rudy set.
+ MAGNETS. A <i>Pendulum and Magnets</i> program showing chaotic physical motion and fractal basins of attraction.
 
-Fractal_Landscapes is the director with the "Fractal Forgeries" module that uses fractals to create images resembling landscapes. John Walker wrote all of this code.
+<img src="http://www.rudyrucker.com /chaos/attracthenon.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/attractlogistic.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/attractyorke.GIF" alt="" />
 
-Barnsley_Fractals is the "Chaos Game" module that shows fractals in the style invented by Michael Barnsley.
+ ATTRACT. A <i>Strange Attractors</i> program showing the Lorenz Attractor, the Logistic Map, the Yorke Attractors, and the Henon Attractors.
 
-Cellular_Automata is for the "Toy Universe" module which shows cellular automata.
+<img src="http://www.rudyrucker.com /chaos/barnsleyflowers.GIF" alt="" />
 
-The code is written to work with a DOS GUI called Metashel, which was an early 1980s TSR or "terminate and stay resident" program by MetaGraphics Software Corporation, then in Scotts Valley, CA. Thus metashel.exe is run in DOS before before the chaos program code. A copy of metashel.exe is distributed with the Chaos release download.
+ GAME. A <i>Barnsley Fractals</i> program showing Iterated Function System fractals such as the famous fractal fern.
+
+<img src="http://www.rudyrucker.com /chaos/forgemenu.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/forgeplanet.GIF" alt="" />
+
+ FORGE. A <i>Fractal Forgeries</i> program that shows clouds, maps, mountain ranges, and planets based on random fractals.
+
+ TOY. A Toy Universes program that shows <i>cellular automata</i>. 
