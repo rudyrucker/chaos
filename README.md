@@ -4,15 +4,15 @@ This is a free release of a product that was called  "James Gleick's CHAOS: The 
 
 <img src="http://www.rudyrucker.com/blog/images7/chaoscover.jpg" height="400" alt="Cover of Chaos Package" />
 
-The software was originally released by Autodesk, Inc., in 1991, and was placed in copyright to Autodesk at that time.  When the product went out of print in about 1992, Autodesk transferred intellectual property rights for the product to James Gleick.  Gleick agrees that the software can be freely released under a Gnu license.
+The software was originally released by Autodesk, Inc., in 1991, and was placed in copyright to Autodesk at that time.  When the product went out of print in about 1992, Autodesk transferred intellectual property rights for the product to James Gleick.  And Gleick agrees that now the software and manual can be freely released under a Gnu license.
 
 The CHAOS User manual is now free <a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">online at GitHub</a> as well. 
 
-You can get a little extra info about the program at the old <a href="http://www.rudyrucker.com/oldhomepage/chaos.htm">Chaos download page</a> on Rucker's website.
-
 # Release 1.1
 
-<a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Download page</a> for the executable and parameter files. It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox.
+<a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Download page</a> for the executable and parameter files, for the source, and for the manual. 
+
+ It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox.
 
 # Note on the Source Code
 
