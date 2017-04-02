@@ -16,27 +16,27 @@ It's possible to run the Chaos program on any virtually any platform, inside a D
 
 # What's In Chaos
 
-<img src="http://www.rudyrucker.com /chaos/startmenu.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/startmenu.GIF" alt="" />
 
 CHAOS has six modules.
 
-<img src="http://www.rudyrucker.com /chaos/mandelheart.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/mandelroar.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/rhorse.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/mandelheart.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/mandelroar.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/rhorse.GIF" alt="" />
 
 MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Julia sets, quadratic and cubic Mandelbrot sets, and a gnarly cubic connectedness map called the <a href="http://tinyurl.com/rudyfractals">Rudy  set</a>.
 
-<img src="http://www.rudyrucker.com /chaos/magnet.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/magnetbasins.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/magnet.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/magnetbasins.GIF" alt="" />
 
  MAGNETS. A <i>Pendulum and Magnets</i> program showing chaotic physical motion and fractal basins of attraction.
 
-<img src="http://www.rudyrucker.com /chaos/attracthenon.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/attractlogistic.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/attractyorke.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/attracthenon.GIF" alt="" /> <img src="http://www.rudyrucker.com chaos/attractlogistic.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/attractyorke.GIF" alt="" />
 
  ATTRACT. A <i>Strange Attractors</i> program showing the Lorenz Attractor, the Logistic Map, the Yorke Attractors, and the Henon Attractors.
 
-<img src="http://www.rudyrucker.com /chaos/barnsleyflowers.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/barnsleyflowers.GIF" alt="" />
 
  GAME. A <i>Barnsley Fractals</i> program showing Iterated Function System fractals such as the famous fractal fern.
 
-<img src="http://www.rudyrucker.com /chaos/forgemenu.GIF" alt="" /> <img src="http://www.rudyrucker.com /chaos/forgeplanet.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/forgemenu.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/forgeplanet.GIF" alt="" />
 
  FORGE. A <i>Fractal Forgeries</i> program that shows clouds, maps, mountain ranges, and planets based on random fractals.
 
