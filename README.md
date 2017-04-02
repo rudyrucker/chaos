@@ -6,9 +6,9 @@ This is a free release of a product that was called  "James Gleick's CHAOS: The 
 
 The software was originally released by Autodesk, Inc., in 1991, and was placed in copyright to Autodesk at that time.  When the product went out of print in about 1992, Autodesk transferred intellectual property rights for the product to James Gleick.  Gleick agrees that the software can be freely released under a Gnu license.
 
-The CHAOS User manual is now free <a src="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">online at GitHub</a> as well. 
+The CHAOS User manual is now free <a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">online at GitHub</a> as well. 
 
-You can get a little more info at about the program at the old <a href="http://www.rudyrucker.com/oldhomepage/chaos.htm">Chaos download page</a>. And there's a note about the devolopment of the code in Rucker's autobiography, <em><a href="http://www.rudyrucker.com/nestedscrolls/sample/nestedscrolls.html#calibre_link-19">Nested Scrolls</a></em>.
+You can get a little extra info about the program at the old <a href="http://www.rudyrucker.com/oldhomepage/chaos.htm">Chaos download page</a> on Rucker's website.
 
 # Release 1.1
 
