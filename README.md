@@ -4,7 +4,7 @@ This is a free release of the source, manual, and executables of a 1991 Autodesk
 
 <img src="http://www.rudyrucker.com/blog/images7/chaoscover.jpg" height="400" alt="Cover of Chaos Package" />
 
-Downloads for the Release 1.l
+Downloads for the Release 1.1
 
 <a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">The CHAOS User manual</a>. 
 
@@ -13,6 +13,8 @@ Downloads for the Release 1.l
 <a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_v1_1.zip">The CHAOS executables and parameter files.</a>
 
 It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Release page</a>. 
+
+You are free to alter the code and upload new versions.  The biggest outstanding upgrade would be to replace our use of the old DOS metashel library for the graphics, and to allow higher resolution for the graphics.  See our Chaos <a href="https://github.com/rudyrucker/chaos/"> GitHub repository</a> for the code online.
 
 # What's In Chaos
 
