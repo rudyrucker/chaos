@@ -34,11 +34,11 @@ MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Jul
 
  ATTRACT. A <i>Strange Attractors</i> program showing the Lorenz Attractor, the Logistic Map, the Yorke Attractors, and the Henon Attractors.
 
-<img src="http://www.rudyrucker.com/chaos/barnsleyflowers.GIF" height="400" alt="" />
+<img src="http://www.rudyrucker.com/chaos/barnsleyflowers.GIF" width="400" alt="" />
 
  GAME. A <i>Barnsley Fractals</i> program showing Iterated Function System fractals such as the famous fractal fern.
 
-<img src="http://www.rudyrucker.com/chaos/forgemenu.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/forgeplanet.GIF" height="400" alt="" />
+<img src="http://www.rudyrucker.com/chaos/forgemenu.GIF" width="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/forgeplanet.GIF" width="400" alt="" />
 
  FORGE. A <i>Fractal Forgeries</i> program that shows clouds, maps, mountain ranges, and planets based on random fractals.
 
