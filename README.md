@@ -16,11 +16,11 @@ It's possible to run the Chaos program on any virtually any platform, inside a D
 
 # What's In Chaos
 
-<img src="http://www.rudyrucker.com/chaos/startmenu.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/startmenu.GIF" height="400" alt="" />
 
 CHAOS has six modules.
 
-<img src="http://www.rudyrucker.com/chaos/mandelheart.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/mandelroar.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/rhorse.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/mandelheart.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/mandelroar.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/rhorse.GIF" height="400" alt="" />
 
 MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Julia sets, quadratic and cubic Mandelbrot sets, and a gnarly cubic connectedness map called the <a href="http://tinyurl.com/rudyfractals">Rudy  set</a>.
 
