@@ -28,15 +28,15 @@ MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Jul
 
  MAGNETS. A <i>Pendulum and Magnets</i> program showing chaotic physical motion and fractal basins of attraction.
 
-<img src="http://www.rudyrucker.com/chaos/attracthenon.GIF" alt="" /> <img src="http://www.rudyrucker.com chaos/attractlogistic.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/attractyorke.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/attracthenon.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com chaos/attractlogistic.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/attractyorke.GIF" height="400" alt="" />
 
  ATTRACT. A <i>Strange Attractors</i> program showing the Lorenz Attractor, the Logistic Map, the Yorke Attractors, and the Henon Attractors.
 
-<img src="http://www.rudyrucker.com/chaos/barnsleyflowers.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/barnsleyflowers.GIF" height="400" alt="" />
 
  GAME. A <i>Barnsley Fractals</i> program showing Iterated Function System fractals such as the famous fractal fern.
 
-<img src="http://www.rudyrucker.com/chaos/forgemenu.GIF" alt="" /> <img src="http://www.rudyrucker.com/chaos/forgeplanet.GIF" alt="" />
+<img src="http://www.rudyrucker.com/chaos/forgemenu.GIF" height="400" alt="" /> <img src="http://www.rudyrucker.com/chaos/forgeplanet.GIF" height="400" alt="" />
 
  FORGE. A <i>Fractal Forgeries</i> program that shows clouds, maps, mountain ranges, and planets based on random fractals.
 
