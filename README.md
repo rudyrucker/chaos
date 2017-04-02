@@ -1,6 +1,6 @@
 # James Gleick's CHAOS: The Software
 
-This is a free release of the source, manual, and executables of a 1991 Autodesk DOS program that was called  "James Gleick's CHAOS: The Software." The software was written by Josh Gordon, Rudy Rucker and John Walker. Rucker wrote most of the algorithms, except for the Fractal Landscapes algorithms, which are by John Walker.  Josh Gordon did the interface, and much of the implementation of the algorithm code. This release is under a Gnu license.
+This is a free release of the source, manual, and executables of a 1991 Autodesk DOS program that was called  "James Gleick's CHAOS: The Software." The software was written by Josh Gordon, Rudy Rucker and John Walker. Rucker wrote most of the algorithms, except for the Fractal Landscapes algorithms, which are by John Walker.  Josh Gordon did the interface, and much of the implementation of the algorithm code. The program was written in consultation with James Gleick about his brilliant book, <a href="https://around.com/books/"> <i>Chaos: Making a New Science</i> </a>. This release is under a Gnu license.
 
 <img src="http://www.rudyrucker.com/blog/images7/chaoscover.jpg" height="400" alt="Cover of Chaos Package" />
 
