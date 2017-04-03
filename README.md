@@ -6,7 +6,7 @@ This is a free release of the source, manual, and executables of a 1991 Autodesk
 
 Downloads for the Release 1.1
 
-<a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_manual.pdf">The CHAOS User manual</a>. 
+<a href="https://github.com/rudyrucker/chaos/releases/download/1.1-chaos/chaos_manual.pdf">The CHAOS User manual</a>. 
 
 <a href="https://github.com/rudyrucker/chaos/archive/v1.1-chaos.zip">The CHAOS source code.</a>
 
