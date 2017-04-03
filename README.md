@@ -6,11 +6,11 @@ This is a free release of the source, manual, and executables of a 1991 Autodesk
 
 Downloads for the Release 1.1
 
+<a href="https://github.com/rudyrucker/chaos/releases/download/1.1-chaos/chaos_executable_v1_1.zip">The CHAOS executables and parameter files.</a>
+
 <a href="https://github.com/rudyrucker/chaos/releases/download/1.1-chaos/chaos_manual.pdf">The CHAOS User manual</a>. 
 
-<a href="https://github.com/rudyrucker/chaos/archive/v1.1-chaos.zip">The CHAOS source code.</a>
-
-<a href="https://github.com/rudyrucker/chaos/archive/1.1-chaos.zip">The CHAOS executables and parameter files.</a>
+<a href="https://github.com/rudyrucker/chaos/archive/1.1-chaos.zip">The CHAOS source code.</a>
 
 It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases">Releases page</a>. 
 
