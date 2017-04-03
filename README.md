@@ -12,7 +12,7 @@ Downloads for the Release 1.1
 
 <a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_v1_1.zip">The CHAOS executables and parameter files.</a>
 
-It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases/tag/v1.1-chaos">Release page</a>. 
+It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases">Releases page</a>. 
 
 You are free to alter the code and upload new versions. Or use our algorithms to spin off smaller programs. See our Chaos <a href="https://github.com/rudyrucker/chaos/"> GitHub repository</a> for the code online.
 
