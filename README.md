@@ -44,4 +44,6 @@ MANDEL. A <i>Mandelbrot Set</i> program, incorporating:  quadratic and cubic Jul
 
  FORGE. A <i>Fractal Forgeries</i> program that shows clouds, maps, mountain ranges, and planets based on random fractals.
 
+<img src="http://www.rudyrucker.com/chaos/hodge.GIF" width="400" alt="" /> 
+
  TOY. A Toy Universes program that shows <i>cellular automata</i>. 
