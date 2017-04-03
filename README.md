@@ -10,11 +10,11 @@ Downloads for the Release 1.1
 
 <a href="https://github.com/rudyrucker/chaos/archive/v1.1-chaos.zip">The CHAOS source code.</a>
 
-<a href="https://github.com/rudyrucker/chaos/releases/download/v1.1-chaos/chaos_v1_1.zip">The CHAOS executables and parameter files.</a>
+<a href="https://github.com/rudyrucker/chaos/archive/1.1-chaos.zip">The CHAOS executables and parameter files.</a>
 
 It's possible to run the Chaos program on any virtually any platform, inside a DOS shell called DOSBox. Details on the <a href="https://github.com/rudyrucker/chaos/releases">Releases page</a>. 
 
-You are free to alter the code and upload new versions. Or use our algorithms to spin off smaller programs. See our Chaos <a href="https://github.com/rudyrucker/chaos/"> GitHub repository</a> for the code online.
+You are free to alter the Chaos code and upload new versions. Or use our algorithms to spin off smaller programs. See our Chaos <a href="https://github.com/rudyrucker/chaos/"> GitHub repository</a> for the Chaos code online.
 
 The biggest outstanding upgrades for Chaos might be: (1) Increase the resolution or pixel size of the display. (2) Elmimate our use of the old DOS TSR or "terminate and stay resident" program metashel.exe, made by MetaGraphics Software Corporation. Chaos uses metashel calls for its graphics. 
 
